@@ -1,0 +1,81 @@
+body{
+    background-image: url("../images/bg.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    font-family:Helvetica, sans-serif;
+    font-size:12px;
+}
+.inner{
+    /* background-color: rgba(255, 255, 255, 0.577); */
+    position:relative;
+    top:-30px;
+    width:100%;
+    height:100%;
+    border-radius: 30px;
+}
+.inner input{
+    color:rgb(213, 212, 212);
+    text-align: center;
+    font-size:22px;
+    padding: -2px;
+    width:90%;
+    height:40px;
+    margin:10px 0px 10px 0px;
+    background:none;
+    border:none;
+    border-bottom :2px solid rgba(0,0,0,.20);
+}
+.inner input[type="submit"]{
+    margin-top:20px;
+    height:50px;
+    border:none;
+    border-radius:25px;
+    background-color: rgb(26,152,252);
+    font-size:15px;
+    color:white;
+    box-shadow:rgb(59, 99, 184) 1px 1px 5px;
+}
+.inner button{
+    position: relative;
+    height:30px;
+    width:90px;
+    margin:12px;
+    background-color:rgb(59, 99, 184);
+    border:none;
+    border-radius:30px;
+    color:white;
+    font-size:12px;
+}
+a{
+    text-decoration: none;
+    color:rgb(119,163,226);
+}
+#l{
+    font-family: 'sans-serif';
+    color:rgba(0, 0, 0, 0.733);
+    margin-bottom:20px;
+    padding-top:100px;
+    text-align:center;
+    font-size:22px;
+    letter-spacing:1px;
+    text-shadow: 2px 2px 4px rgba(29, 28, 28, 0.591);
+}
+input:focus{
+    outline: none;
+}
+Button:focus{
+    pointer-events: stroke;
+}
+::placeholder{
+    position:relative;
+    font-size:14px;
+    letter-spacing: .7px;
+    text-align: center;
+}
+input[type="submit"]:hover,Button:hover{
+    cursor: pointer;
+}
+hr{
+    width:90%;
+    height:.1px;
+}
