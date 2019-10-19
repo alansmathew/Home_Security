@@ -4,6 +4,8 @@ body{
     background-size: cover;
     font-family:Helvetica, sans-serif;
     font-size:12px;
+    margin:0px;
+    padding:0px;
 }
 .inner{
     /* background-color: rgba(255, 255, 255, 0.577); */
@@ -14,7 +16,7 @@ body{
     border-radius: 30px;
 }
 .inner input{
-    color:rgb(213, 212, 212);
+    color:rgb(94, 92, 92);
     text-align: center;
     font-size:22px;
     padding: -2px;
@@ -78,4 +80,147 @@ input[type="submit"]:hover,Button:hover{
 hr{
     width:90%;
     height:.1px;
+}
+
+.nav{
+    background: rgb(11,	25,	46);
+    overflow: hidden;
+    padding:20px 0px 24px 0px;
+    font-family:Andale Mono;
+    font-size: 13px;
+    box-shadow: rgba(0, 0, 0, 0.253) 0px 1px 50px;
+}
+.nav ul li a{
+    text-decoration: none;
+    padding-right: 43px;
+    color:rgb(182, 193, 218);
+    float:right;
+}
+.nav ul li {
+    list-style: none;
+    margin:0px 143px 0px 0px;
+}
+.nav ul li a:hover{
+    color: rgb(100,234,203)
+}
+.resume{
+    top:17px;
+    color:rgb(163, 218, 205);
+    right:50px;
+    padding-top:13px;
+    text-align: center;
+    width:80px;
+    height:28px;
+    border:1px solid rgb(100,234,203);
+    border-radius:5px;
+    position: absolute;
+}
+.logo{
+    margin:12px 0px 0px 58px;
+    border:2px  solid;
+    width:35px;
+    height:35px;
+    border-radius:50px;
+    color:rgb(100,234,203);
+    position: absolute;
+    top:3px;
+}
+.a{
+    margin-top:1px; 
+    font-family: Herculanum;
+    font-size: 29px;
+    text-align: center;
+}
+.logo:hover{
+    background: rgb(24, 37, 54);
+}
+.foot{
+    margin-top:30px;
+    float:left;
+    width:100%;
+    background: rgb(11,	25,	46);
+    text-align: center;
+    color:rgba(255, 255, 255, 0.878);
+    font-size:14px;
+}
+.ftnote{
+    width:300px;
+    height:50px;
+    padding:40px;
+    margin: auto;
+    display:block;
+}
+h1{
+    margin:1px 0px 0px 13px;
+    padding:00px;
+    font-family: sans-serif;
+    font-size: 69px;
+    letter-spacing: 1px;
+}
+.margin{
+    width:1230px;
+    margin:auto;
+}
+.itemimage{
+    position: relative;
+    float: left;
+    margin:10px;
+    width:400px;
+    height:500px;
+    background-color: tomato;
+}
+.itemdis{
+    float: left;
+    margin:10px;
+    padding:10px;
+    background-color: bisque;
+    width:770px;
+    height:700px;
+}
+.tumb{
+    text-align: center;
+    position: absolute;
+    bottom:-220px;
+    width: 400px;
+    height:200px;
+    background-color: aquamarine;
+}
+.cartitems{
+    border-radius: 20px;
+    margin:10px;
+    padding: 10px;
+    width:900px;
+    height:150px;
+    /* background-color: rgba(94, 91, 90, 0.228); */
+    float: left;
+    display: block;
+}
+.cartitems img{
+    float: left;
+    border-radius: 20px 0px 0px 20px;
+    width:150px;
+    height: 150px;
+    background-color: azure;
+}
+.dis{
+    float: left;
+    width:750px;
+    height: 150px;
+    background-color:rgba(255, 255, 255, 0.81);
+    border-radius: 2px 20px 20px 0px;
+}
+.cartitems img:hover{
+    box-shadow: 1px 1px 12px rgba(28, 27, 27, 0.625);
+}
+.cartitems:hover{
+    box-shadow: 1px 1px 9px rgba(28, 27, 27, 0.344);
+}
+.checkout{
+    border-radius: 20px;
+    margin-top:20px;
+    float:right;
+    width:280px;
+    height:500px;
+    box-shadow: 2px 2px 12px 1px rgba(145, 129, 110, 0.673);
+    background-color: bisque;
 }

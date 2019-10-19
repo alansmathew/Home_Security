@@ -4,156 +4,209 @@
         <title>Home Security</title>
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <style>
-            body{
-                margin:0px;
-                padding:0px;
-            }
-            
+        .margin{
+            width:1230px;
+            margin:auto;
+        }
+        .item_class{
+            display: block;
+            width:1200px;
+	        background:rgba(223, 223, 223, 0.378);
+	        float:left;
+	        margin:10;
+	        padding:20;
+        }  
         .item{
             position: relative;
-            background-color: white;
+            /* background-color: white; */
             display:block;
             float:left;
-            height:250px;
-            width:220px;
+            height:390px;
+            width:271px;
             margin:24px;
-            box-shadow: 1px 1px 7px rgba(94, 93, 93, 0.233); 
+            margin-right:0;
+            /* box-shadow: 1px 1px 7px rgba(94, 93, 93, 0.233);  */
         }
         .item:hover{
             box-shadow: 3px 3px 10px rgba(34, 34, 34, 0.233);
         }
-        .nav{
-            background-color: rgba(24, 28, 26);
-            overflow: hidden;
-            height:80px;
+        .item img{
+            height:271px;
+            width:271px;
+            align-content: center;
         }
-        form{
-            position: relative;
-            top:30px;
-            left:18%;
-        }
-
-        form input{
-            text-align: center;
+        .mn{
+            color:rgba(175, 42, 42, 0.926);
             float:left;
-            width:50%;
-            height:30px;
-            border:none;
-            border-radius:5px 0px 0px 5px;;
-            left:25%;
-        }
-        form button{
-            width:70px;
-            height:32px;
-            border:none;
-            border-radius: 0px 5px 5px 0px;
-            background-color: rgb(248, 120, 35);
-        }
-
-        .nav a{
-            float:right;
-            color:white;
+            display: block;
+            padding: 5px;
             font-size: 18px;
-            margin:-25px 0px 0px 0px;
-            padding: 30px 20px; 
+            width:100%;
         }
-
+        .itname{
+            width: 100%;
+            padding:5px;
+            color: rgb(11,	25,	46);
+            font-size: 16px;
+            float: left;
+            display: block;
+        }
+        .ct{
+            font-size: 16px;
+            position: absolute;
+            display:block;
+            bottom: 0px;
+            height: 34px;
+            width: 100%;
+            color:black;
+            background-color: rgba(245, 181, 84, 0.755);
+            border-radius: 5px;
+            border: solid rgba(40, 40, 40, 0.358) 1px;
+        }
+        .ct:hover{
+            border:solid black 1px;
+        }
         </style>
     </head>
-    <body>
+    <body> 
+         <!-- navigator -->
         <div class="nav">
-            <form>
-                <input type="textbox" placeholder="Search"/>
-                <button>Search</button>
-             </form>
-            <a href="">Demo1</a>
-            <a href="">Demo2</a>
-            <a href="">Demo3</a>
-        </div>
-        <div id="item_class">
-            <div class="item">
-                <div class="img"></div>
-                <div class="con"></div>
+                <ul>
+                    <li><a href="reg.html">Sign up</a></li>
+                    <li><a href="login.html">Sign in</a></li>
+                </ul>
+                <a href="cart.html">
+                    <div class="resume">Bag</div>
+                </a>
+                <a href="home.html"><div class="logo">
+                        <div class="a" style="color:rgb(100,234,203);">
+                            H
+                    </div>
+                </a>
             </div>
+        </div>
+         <!-- navigator -->
+    <div class="margin">
+        <div class="item_class">
+            <a href="item.html">
+                <div class="item">
+                    <div class="image">
+                        <img src="images/test.png">
+                    </div>
+                    <div class="mn">$00.00</div>
+                    <div class="itname">Item name here</div></a>
+                    <button class="ct">Add to bag </button>
+            </div>
+            <a href="item.html">
+                <div class="item">
+                    <div class="image">
+                        <img src="images/test.png">
+                    </div>
+                    <div class="mn">$00.00</div>
+                    <div class="itname">Item name here</div></a>
+                    <button class="ct">Add to bag </button>
+                </div>
             
-            <div class="item">
-                    <div class="img"></div>
-                    <div class="con"></div>
-            </div>
-
-                        
-            <div class="item">
-                    <div class="img"></div>
-                    <div class="con"></div>
-            </div>
-                        
-            <div class="item">
-                    <div class="img"></div>
-                    <div class="con"></div>
-            </div>
-                        
-            <div class="item">
-                    <div class="img"></div>
-                    <div class="con"></div>
-            </div>
-           
-                        
-            <div class="item">
-                    <div class="img"></div>
-                    <div class="con"></div>
-            </div>
-
-                        
-            <div class="item">
-                    <div class="img"></div>
-                    <div class="con"></div>
-            </div>
-
-                        
-            <div class="item">
-                    <div class="img"></div>
-                    <div class="con"></div>
-            </div>
-
-                    
-            <div class="item">
-                    <div class="img"></div>
-                    <div class="con"></div>
-            </div>
-                        
-            <div class="item">
-                    <div class="img"></div>
-                    <div class="con"></div>
-            </div>
-                        
-            <div class="item">
-                    <div class="img"></div>
-                    <div class="con"></div>
-            </div>
-                        
-            <div class="item">
-                    <div class="img"></div>
-                    <div class="con"></div>
-            </div>
-                        
-            <div class="item">
-                    <div class="img"></div>
-                    <div class="con"></div>
-            </div>
-                        
-            <div class="item">
-                    <div class="img"></div>
-                    <div class="con"></div>
-            </div>
-                        
-            <div class="item">
-                    <div class="img"></div>
-                    <div class="con"></div>
-            </div>
+            <a href="item.html">
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/test.png">
+                        </div>
+                        <div class="mn">$00.00</div>
+                        <div class="itname">Item name here</div></a>
+                        <button class="ct">Add to bag </button>
+                    </div>
+            
+            <a href="item.html">
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/test.png">
+                        </div>
+                        <div class="mn">$00.00</div>
+                        <div class="itname">Item name here</div></a>
+                        <button class="ct">Add to bag </button>
+                    </div>
+            <a href="item.html">
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/test.png">
+                        </div>
+                        <div class="mn">$00.00</div>
+                        <div class="itname">Item name here</div></a>
+                        <button class="ct">Add to bag </button>
+                    </div>
+            <a href="item.html">
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/test.png">
+                        </div>
+                        <div class="mn">$00.00</div>
+                        <div class="itname">Item name here</div></a>
+                        <button class="ct">Add to bag </button>
+                    </div>
+            <a href="item.html">
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/test.png">
+                        </div>
+                        <div class="mn">$00.00</div>
+                        <div class="itname">Item name here</div></a>
+                        <button class="ct">Add to bag </button>
+                    </div>
+            <a href="item.html">
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/test.png">
+                        </div>
+                        <div class="mn">$00.00</div>
+                        <div class="itname">Item name here</div></a>
+                        <button class="ct">Add to bag </button>
+                    </div>
+            <a href="item.html">
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/test.png">
+                        </div>
+                        <div class="mn">$00.00</div>
+                        <div class="itname">Item name here</div></a>
+                        <button class="ct">Add to bag </button>
+                    </div>
+            <a href="item.html">
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/test.png">
+                        </div>
+                        <div class="mn">$00.00</div>
+                        <div class="itname">Item name here</div></a>
+                        <button class="ct">Add to bag </button>
+                    </div>
+            <a href="item.html">
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/test.png">
+                        </div>
+                        <div class="mn">$00.00</div>
+                        <div class="itname">Item name here</div></a>
+                        <button class="ct">Add to bag </button>
+                    </div>
+            <a href="item.html">
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/test.png">
+                        </div>
+                        <div class="mn">$00.00</div>
+                        <div class="itname">Item name here</div></a>
+                        <button class="ct">Add to bag </button>
+                    </div>
         </div>
-
+    </div>
         <div class="foot">
+            <div class="ftnote">
+                This website is created for study purpose only<br>
+                No &copy; reserved ! 
+            </div>
 
         </div>
+        
     </body>
 </html>

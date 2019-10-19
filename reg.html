@@ -93,20 +93,72 @@
                     }
                 }
 
-        </style>
+        </style> 
+        <script>
+            function validate(){
+		    var patterns=[
+                /^[a-zA-Z\ ]+$/,
+		        /^[a-zA-Z0-9$&+,:;=?@#|'<>.-^*()%!]+$/,
+		        /^([A-Za-z0-9\.]{4,30})+@[a-z]+\.+[a-z]+$/,
+		        /^(?=.*[!@#$%^&*(),.?":{}|<>\ )(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+		        /^(?=.*[!@#$%^&*(),.?":{}|<>\ )(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
+            ];
+		    var fields=["NAME","USERNAME","EMAIL","PASSWORD","CONFIRM PASSWORD"];
+		    for(i=0;i<=4;i++){
+			    var el=document.getElementById(i).value;
+			        if(el==""){
+				        alert(fields[i]+" field is empty");
+				        return false;
+                    }
+                    else if(document.getElementById(3).value != document.getElementById(4).value){
+                        alert("password dont match");
+                        return false;
+                    }
+			        else{
+				        var patt=patterns[i];
+				        if(!el.match(patt)){
+					        alert(fields[i]+" pattern error");
+					        return false;
+				        }
+			        }
+                }
+	        }
+        </script>
     </head>
     <body>
+        <!-- navigator -->
+        <div class="nav">
+                <ul>
+                    <li><a href="reg.html">Sign up</a></li>
+                    <li><a href="login.html">Sign in</a></li>
+                </ul>
+                <a href="cart.html">
+                    <div class="resume">Bag</div>
+                </a>
+                <a href="home.html"><div class="logo">
+                        <div class="a" style="color:rgb(100,234,203);">
+                            H
+                    </div>
+                </a>
+            </div>
+        </div>
+         <!-- navigator -->
         <div class="t animateleft">
             <div class="vbut"></div>
             <div class="lbut"></div>
                 <div class="inner ">
                     <img src="images/reg.png"/>
                     <h1 id="l">Register</h1>
-                    <center><input type="text" placeholder= Username style="border-bottom: 2px; border-bottom :2px solid rgba(0,0,0,.20);" />
-                    <input type="password" placeholder=Password />
-                    <input type="password" placeholder="Confirm Password" />
-                    <input type="submit" value="Register" />
-                    <br><br>Already have an account ? <a href="login.html">Sign in</a><br><br>
+                    <center>
+                    <form onsubmit="validate()">
+                        <input type="text" placeholder="Name"  id="0"/>
+                        <input type="text" placeholder="Username" id="1"/>
+                        <input type="text" placeholder="Email" id="2"/>
+                        <input type="password" placeholder="Password" id="3"/>
+                        <input type="password" placeholder="Confirm Password" id="4"/>
+                        <input type="submit" value="Register" />
+                        <br><br>Already have an account ? <a href="login.html">Sign in</a><br><br>
+                </form>
                 </center>
                 </div>
         </div>
