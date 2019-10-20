@@ -7,6 +7,18 @@ body{
     margin:0px;
     padding:0px;
 }
+@font-face{
+    font-family: Herculanum;
+    src:url("fonts/Herculanum.ttf");
+}
+@font-face{
+    font-family: Sans Serif;
+    src:url("fonts/Microsoft Sans Serif.ttf");
+}
+@font-face{
+    font-family: Andale Mono;
+    src:url("fonts/Andale Mono.ttf");
+}
 .inner{
     /* background-color: rgba(255, 255, 255, 0.577); */
     position:relative;
@@ -53,7 +65,7 @@ a{
     color:rgb(119,163,226);
 }
 #l{
-    font-family: 'sans-serif';
+    font-family: Sans Serif;
     color:rgba(0, 0, 0, 0.733);
     margin-bottom:20px;
     padding-top:100px;
@@ -82,57 +94,14 @@ hr{
     height:.1px;
 }
 
-.nav{
-    background: rgb(11,	25,	46);
-    overflow: hidden;
-    padding:20px 0px 24px 0px;
-    font-family:Andale Mono;
-    font-size: 13px;
-    box-shadow: rgba(0, 0, 0, 0.253) 0px 1px 50px;
-}
-.nav ul li a{
+#nav a{
     text-decoration: none;
-    padding-right: 43px;
-    color:rgb(182, 193, 218);
-    float:right;
+    color:white;
+    font-size: 18px;
+    margin:20px;
 }
-.nav ul li {
-    list-style: none;
-    margin:0px 143px 0px 0px;
-}
-.nav ul li a:hover{
-    color: rgb(100,234,203)
-}
-.resume{
-    top:17px;
-    color:rgb(163, 218, 205);
-    right:50px;
-    padding-top:13px;
-    text-align: center;
-    width:80px;
-    height:28px;
-    border:1px solid rgb(100,234,203);
-    border-radius:5px;
-    position: absolute;
-}
-.logo{
-    margin:12px 0px 0px 58px;
-    border:2px  solid;
-    width:35px;
-    height:35px;
-    border-radius:50px;
+#nav a:hover{
     color:rgb(100,234,203);
-    position: absolute;
-    top:3px;
-}
-.a{
-    margin-top:1px; 
-    font-family: Herculanum;
-    font-size: 29px;
-    text-align: center;
-}
-.logo:hover{
-    background: rgb(24, 37, 54);
 }
 .foot{
     margin-top:30px;
@@ -161,13 +130,30 @@ h1{
     width:1230px;
     margin:auto;
 }
-.itemimage{
+.itemimage {
     position: relative;
     float: left;
     margin:10px;
     width:400px;
     height:500px;
     background-color: tomato;
+}
+.itemimage img{
+    position: absolute;
+    width: 100%;
+    margin:auto;
+}
+
+.tumb img{
+    position: relative;
+    width:80px;
+    height:80px;
+    margin:5px;
+    float:left;
+    border:solid rgba(255, 255, 255, 0) 1px;
+}
+.tumb img:hover{
+    border:solid rgba(7, 7, 7, 0.7) 1px;
 }
 .itemdis{
     float: left;
@@ -177,6 +163,7 @@ h1{
     width:770px;
     height:700px;
 }
+
 .tumb{
     text-align: center;
     position: absolute;
@@ -223,4 +210,37 @@ h1{
     height:500px;
     box-shadow: 2px 2px 12px 1px rgba(145, 129, 110, 0.673);
     background-color: bisque;
+}
+.container{
+    color:white;
+    width: 600px;
+    height: 400px;
+    margin:auto;
+    padding-top:300px;
+    text-align: center;
+}
+.container h1{
+    font-family:Herculanum;
+    font-weight: 50px;
+    animation:header .9s;
+}
+@keyframes header{
+    from{  
+            margin-top:100px;
+    }
+    to{     margin-top:0px
+    }
+}
+.container h2{
+    font-family:Andale Mono;
+    font-weight: 20px;
+    color: rgba(216, 216, 216, 0.824);
+    animation:header2 1.3s;
+}
+@keyframes header2{
+    from{  
+            margin-top:100px;
+    }
+    to{     margin-top:14px
+    }
 }
