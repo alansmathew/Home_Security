@@ -81,6 +81,7 @@
         #nav{
             font-family:Andale Mono;
             position: sticky;
+            z-index:1;
             top:0px;
             width:100%;
             padding:30px;
@@ -103,20 +104,8 @@
             height:680px;
             display: block;
         }
-        @keyframes this {
-            from{
-                    z-index: 1000;
-                    top:700px;
-                    border-radius:0px 0px 0px 0px
-                }
-            to{ 
-                top:0px;
-                width:50%;
-                border-radius:0px 0px 50px 50px;
-            }
-        }
         .slider{
-            margin:120px 0px 20px 0px;
+            margin:40px 0px 20px 0px;
 	        /* margin:65 0 0; */
 	        width:100%;
 	        height:55vh;
@@ -140,19 +129,14 @@
             100%{opacity:1;}
         }
         </style>
-         <script>
-                function fn(){
-                    document.getElementById("main").style.cssText="display:none;"
-                    document.getElementById("nav").style.cssText="z-index: 1000;position:fixed;animation:this ease-in .7s;border-radius:0px 0px 50px 50px;margin-left:25%;width:50%;";
-                }
-        </script>
+        
     </head>
     <body onscroll="fn()"> 
 
         <div id="main">
             <div class="container">
                     <h1> Home Security</h1>
-                    <h2>This website provides the best ever home security applainces</h2>
+                    <h2>Prevention is better than cure..</h2>
             </div>  
         </div>
          <!-- navigator -->
@@ -171,7 +155,7 @@
                 <img src="images/4.jpg">
                 <img src="images/5.jpg">
          </div>
-    <div class="margin">
+    <div class="margin" style="overflow: hidden;">
         <div class="item_class">
             <a href="item.html">
                 <div class="item">
