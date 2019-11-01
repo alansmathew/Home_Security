@@ -69,6 +69,8 @@
                 top:12%;
                 right:-11px;
                 background-color: rgba(29, 28, 28, 0.945);
+                
+                
             }
             .animateleft{
                     position:relative;
@@ -84,10 +86,25 @@
                         height:620px;
                     }
                 }
+                .inner input[type="button"]{
+                    margin-top:20px;
+                    border:none;
+                    border-radius:25px;
+                    background-color: rgb(26,152,252);
+                    font-size:15px;
+                    color:white;
+                    box-shadow:rgb(59, 99, 184) 1px 1px 5px;
+                    height:50px;
+                }
+                input[type="button"]:hover{
+                    cursor: pointer;
+                }
 
         </style> 
         <script>
+            var fields=["NAME","USERNAME","EMAIL","PASSWORD","CONFIRM PASSWORD"];
             function validate(){
+            var flag=true;
 		    var patterns=[
                 /^[a-zA-Z\ ]+$/,
 		        /^[a-zA-Z0-9$&+,:;=?@#|'<>.-^*()%!]+$/,
@@ -99,22 +116,37 @@
 		    for(i=0;i<=4;i++){
 			    var el=document.getElementById(i).value;
 			        if(el==""){
-				        alert(fields[i]+" field is empty");
-				        return false;
+                        falg=false;
+                        document.getElementById(i).value="";
+                        document.getElementById(i).style.cssText="border-color:brown;";
+                        document.getElementById(i).placeholder=fields[i]+" can't be empty !"
                     }
                     else if(document.getElementById(3).value != document.getElementById(4).value){
-                        alert("password dont match");
-                        return false;
+                        document.getElementById(3).value="";
+                        document.getElementById(3).placeholder="password dont match"
+                        document.getElementById(3).style.cssText="border-color:brown;";
+                        flag=false;
                     }
 			        else{
 				        var patt=patterns[i];
 				        if(!el.match(patt)){
-					        alert(fields[i]+" pattern error");
-					        return false;
+                            document.getElementById(i).value="";
+                            document.getElementById(i).placeholder=fields[i]+" pattern error "+patterns[i];
+                            document.getElementById(i).style.cssText="border-color:brown;";
+					        flag=false;
 				        }
 			        }
                 }
+                if (flag==true){
+                    location.href="reg_val.php";
+                }
 	        }
+            function clr(box){
+                document.getElementById(box).value="";
+                document.getElementById(box).placeholder=fields[box];
+                document.getElementById(box).style.cssText="color:rgb(94, 92, 92);border-bottom :2px solid rgba(0,0,0,.20);";
+                document.getElementById(box).focus();
+            }
         </script>
     </head>
     <body>
@@ -133,15 +165,15 @@
                 <div class="inner ">
                     <h1 id="l">Register</h1>
                     <center>
-                    <form onsubmit="validate()">
-                        <input type="text" placeholder="Name"  id="0"/>
-                        <input type="text" placeholder="Username" id="1"/>
-                        <input type="text" placeholder="Email" id="2"/>
-                        <input type="password" placeholder="Password" id="3"/>
-                        <input type="password" placeholder="Confirm Password" id="4"/>
-                        <input type="submit" value="Register" />
+                    <form method="POST">
+                        <input type="text" placeholder="Name" id="0" name="name" onfocus="clr(0)"/>
+                        <input type="text" placeholder="Username" id="1" name="uname" onfocus="clr(1)"/>
+                        <input type="text" placeholder="Email" id="2" name="email" onfocus="clr(2)"/>
+                        <input type="password" placeholder="Password" id="3" name="pword" onfocus="clr(3)"/>
+                        <input type="password" placeholder="Confirm Password" id="4" onfocus="clr(4)"/>
+                        <input type="button" onClick="validate()" value="Register"/>
                         <br><br>Already have an account ? <a href="login.html">Sign in</a><br><br>
-                </form>
+                    </form>
                 </center>
                 </div>
         </div>

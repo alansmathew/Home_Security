@@ -43,7 +43,7 @@ body{
     border:none;
     border-bottom :2px solid rgba(0,0,0,.20);
 }
-.inner input[type="submit"]{
+.inner input[type="button"]{
     margin-top:20px;
     height:50px;
     border:none;

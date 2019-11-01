@@ -92,7 +92,25 @@
                         width:270px;
                     }
                 }
+                .inner input[type="button"]{
+                    margin-top:20px;
+                    border:none;
+                    border-radius:25px;
+                    background-color: rgb(26,152,252);
+                    font-size:15px;
+                    color:white;
+                    box-shadow:rgb(59, 99, 184) 1px 1px 5px;
+                    height:50px;
+                }
+                input[type="button"]:hover{
+                    cursor: pointer;
+                }
         </style>
+        <script>
+            function val(){
+                location.href="log.php";
+            }
+        </script>
     </head>
     <body>
         <!-- navigator -->
@@ -109,14 +127,17 @@
             <div class="lbut"></div>
                 <div class="inner">
                     <h1 id="l">Login</h1>
-                    <center><input type="text" placeholder= Username style="border-bottom: 2px; border-bottom :2px solid rgba(0,0,0,.20);" />
-                    <input type="password" placeholder=Password />
-                    <input type="submit" value="Secure Login" />
+                    <center>
+                    <form method="POST">
+                    <input type="text" name="uname" placeholder= Username style="border-bottom: 2px; border-bottom :2px solid rgba(0,0,0,.20);" />
+                    <input type="password" name="pword" placeholder=Password />
+                    <input type="button" onclick="val()" value="Secure Login"/>
                     <br><br>Don't have an account ? <a href="reg.html">Sign up Now !</a><br><br>
                     <hr><br>
                     Sign in with Social Networks<br>
                     <button>Facebook</button>
                     <button style="background-color:rgb(217,76,62)">Google</button>
+                </form>
                 </center>
                 </div>
         </div>

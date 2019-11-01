@@ -15,7 +15,7 @@
         header("location:home.html");
     }
     else{
-        echo "wrong!";
+        header("location:login.html");
     }
 ?>
 </body>
