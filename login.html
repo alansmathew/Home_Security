@@ -108,7 +108,7 @@
         </style>
         <script>
             function val(){
-                location.href="log.php";
+                document.getElementById('frm').submit();
             }
         </script>
     </head>
@@ -128,8 +128,8 @@
                 <div class="inner">
                     <h1 id="l">Login</h1>
                     <center>
-                    <form method="POST">
-                    <input type="text" name="uname" placeholder= Username style="border-bottom: 2px; border-bottom :2px solid rgba(0,0,0,.20);" />
+                    <form action="log.php" id="frm" method="POST">
+                    <input type="text" name="uname" placeholder=Username style="border-bottom: 2px; border-bottom :2px solid rgba(0,0,0,.20);" />
                     <input type="password" name="pword" placeholder=Password />
                     <input type="button" onclick="val()" value="Secure Login"/>
                     <br><br>Don't have an account ? <a href="reg.html">Sign up Now !</a><br><br>

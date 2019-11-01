@@ -69,8 +69,6 @@
                 top:12%;
                 right:-11px;
                 background-color: rgba(29, 28, 28, 0.945);
-                
-                
             }
             .animateleft{
                     position:relative;
@@ -85,20 +83,20 @@
                         width:500px;
                         height:620px;
                     }
+            }
+            .inner input[type="button"]{
+                margin-top:20px;
+                border:none;
+                border-radius:25px;
+                background-color: rgb(26,152,252);
+                font-size:15px;
+                color:white;
+                box-shadow:rgb(59, 99, 184) 1px 1px 5px;
+                height:50px;
                 }
-                .inner input[type="button"]{
-                    margin-top:20px;
-                    border:none;
-                    border-radius:25px;
-                    background-color: rgb(26,152,252);
-                    font-size:15px;
-                    color:white;
-                    box-shadow:rgb(59, 99, 184) 1px 1px 5px;
-                    height:50px;
-                }
-                input[type="button"]:hover{
-                    cursor: pointer;
-                }
+            input[type="button"]:hover{
+                cursor: pointer;
+            }
 
         </style> 
         <script>
@@ -108,7 +106,7 @@
 		    var patterns=[
                 /^[a-zA-Z\ ]+$/,
 		        /^[a-zA-Z0-9$&+,:;=?@#|'<>.-^*()%!]+$/,
-		        /^([A-Za-z0-9\.]{4,30})+@[a-z]+\.+[a-z]+$/,
+		        /^([A-Za-z0-9\.]{4,30})+@[a-z\.]+\.+[a-z]+$/,
 		        /^(?=.*[!@#$%^&*(),.?":{}|<>\ )(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
 		        /^(?=.*[!@#$%^&*(),.?":{}|<>\ )(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
             ];
@@ -138,7 +136,7 @@
 			        }
                 }
                 if (flag==true){
-                    location.href="reg_val.php";
+                    document.getElementById('frm').submit();
                 }
 	        }
             function clr(box){
@@ -152,11 +150,11 @@
     <body>
         <!-- navigator -->
         <div id="nav">
-                <a href="home.html" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
-                </a>
-                <a href="reg.html">Sign up</a>
-                <a href="login.html">Sign in</a>
-                <a href="cart.html">Bag</a>
+            <a href="home.html" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
+            </a>
+            <a href="reg.html">Sign up</a>
+            <a href="login.html">Sign in</a>
+            <a href="cart.html">Bag</a>
         </div>
          <!-- navigator -->
         <div class="t animateleft">
@@ -165,7 +163,7 @@
                 <div class="inner ">
                     <h1 id="l">Register</h1>
                     <center>
-                    <form method="POST">
+                    <form action="reg_val.php" id="frm" method="POST">
                         <input type="text" placeholder="Name" id="0" name="name" onfocus="clr(0)"/>
                         <input type="text" placeholder="Username" id="1" name="uname" onfocus="clr(1)"/>
                         <input type="text" placeholder="Email" id="2" name="email" onfocus="clr(2)"/>

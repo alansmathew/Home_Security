@@ -9,19 +9,19 @@ body{
 }
 @font-face{
     font-family: Zapfino;
-    src:url("fonts/Zapfino.ttf");
+    src:url("../fonts/Zapfino.ttf");
 }
 @font-face{
     font-family: Herculanum;
-    src:url("fonts/Herculanum.ttf");
+    src:url("../fonts/Herculanum.ttf");
 }
 @font-face{
     font-family: Sans Serif;
-    src:url("fonts/Microsoft Sans Serif.ttf");
+    src:url("../fonts/Microsoft\ Sans\ Serif.ttf");
 }
 @font-face{
     font-family: Andale Mono;
-    src:url("fonts/Andale Mono.ttf");
+    src:url("../fonts/Andale\ Mono.ttf");
 }
 .inner{
     /* background-color: rgba(255, 255, 255, 0.577); */
