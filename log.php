@@ -15,7 +15,8 @@
         header("location:home.html");
     }
     else{
-        header("location:login.html");
+        // header("location:login.html");
+        echo "yes";
     }
 ?>
 </body>

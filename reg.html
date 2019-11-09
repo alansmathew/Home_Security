@@ -101,8 +101,6 @@
         </style> 
         <script>
             var fields=["NAME","USERNAME","EMAIL","PASSWORD","CONFIRM PASSWORD"];
-            function validate(){
-            var flag=true;
 		    var patterns=[
                 /^[a-zA-Z\ ]+$/,
 		        /^[a-zA-Z0-9$&+,:;=?@#|'<>.-^*()%!]+$/,
@@ -110,11 +108,13 @@
 		        /^(?=.*[!@#$%^&*(),.?":{}|<>\ )(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
 		        /^(?=.*[!@#$%^&*(),.?":{}|<>\ )(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
             ];
-		    var fields=["NAME","USERNAME","EMAIL","PASSWORD","CONFIRM PASSWORD"];
-		    for(i=0;i<=4;i++){
-			    var el=document.getElementById(i).value;
+            var fields=["NAME","USERNAME","EMAIL","PASSWORD","CONFIRM PASSWORD"];
+            function validate(){
+                var flag=true;
+		        for(i=0;i<=4;i++){
+			        var el=document.getElementById(i).value;
 			        if(el==""){
-                        falg=false;
+                        flag=false;
                         document.getElementById(i).value="";
                         document.getElementById(i).style.cssText="border-color:brown;";
                         document.getElementById(i).placeholder=fields[i]+" can't be empty !"
@@ -133,11 +133,18 @@
                             document.getElementById(i).style.cssText="border-color:brown;";
 					        flag=false;
 				        }
-			        }
+                    }
+                    
                 }
-                if (flag==true){
+                alert(flag);
+                if(flag==true)
+                {
                     document.getElementById('frm').submit();
                 }
+                // if (flag==true){
+                //     alert("yes");
+                //     // document.getElementById('frm').submit();
+                //     } 
 	        }
             function clr(box){
                 document.getElementById(box).value="";

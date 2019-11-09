@@ -94,13 +94,13 @@
                 }
         </style>
         <script>
-            field=['Username','Password']
-            flag=true;
+            field=['Username','Password'];
             function val(){
-                for(var i=0;i<2;i++)
+                flag=true;
+                for(var i=0;i<=1;i++)
                 {
                     el=document.getElementById(i);
-                    if(el.value=='')
+                    if(el.value=="")
                     {
                         el.placeholder="Cant be empty !";
                         flag=false;
@@ -108,7 +108,7 @@
                     }
                 }
                 if(flag==true){
-                document.getElementById("frm").submit();
+                    document.getElementById('frm').submit();
                 }
             }
             function clr(id){
@@ -117,6 +117,7 @@
         </script>
     </head>
     <body>
+    <form action="" id="frm" method="POST">
         <!-- navigator -->
         <div id="nav">
                 <a href="home.html" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
@@ -132,46 +133,25 @@
                 <div class="inner">
                     <h1 id="l">Login</h1>
                     <center>
-                    <form id="frm" method="POST">
-
                     <input type="text" name="uname" id=0 onclick="clr(id)" placeholder= Username style="border-bottom: 2px; border-bottom :2px solid rgba(0,0,0,.20);" />
 
                     <input type="password" name="pword" id=1 onclick="clr(id)" placeholder=Password />
 
-                    <input type="button" name="submit" value="Secure Login" onclick="val()" style="cursor:pointer"/>
+                    <input type="button" onclick="val()" name="submit" value="Secure Login" style="cursor:pointer"/>
+
+
                     <br><br>Don't have an account ? <a href="reg.html">Sign up Now !</a><br><br>
                     <hr><br>
                     Sign in with Social Networks<br>
                     <button>Facebook</button>
                     <button style="background-color:rgb(217,76,62)">Google</button>
-
-                    <?php
-                        if(isset($_POST["submit"]))
-                        {
-                            echo "<script>alert('yes')</script>";
-                            // $username=$_POST["uname"];
-                            // $password=$_POST["pword"];
-                            // $con=mysqli_connect("localhost","root","","project") or die("failed");
-                            // $sql="select username,password from tbl_login where username='$username' and password='$password'";
-                            // $result=mysqli_query($con,$sql);
-                            // if(mysqli_num_rows($result)>0)
-                            // {
-                            //     echo "yes";
-                            //     // header("location:home.html");
-                            // }
-                            // else{
-                            //     header("location:login.php");
-                            // }
-                            // if(mysqli_query($con,$sql))
-                            // {
-                            //     echo "yes";
-                            // }
-                        }
-                    ?>
-                </form>
                 </center>
             </div>
         </div>
+        </form>
+        <?php
+            
+        ?>
     </body>
 </html>
  
