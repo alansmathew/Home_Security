@@ -112,6 +112,7 @@
                 }
             }
             function clr(id){
+                document.getElementById('err').style.display="none";
                 document.getElementById(id).placeholder=field[id];
             }
         </script>
@@ -126,16 +127,28 @@
                 <a href="cart.html">Bag</a>
         </div>
          <!-- navigator -->
-         <form action="" id="frm" method="POST">
+         
         <div class="t animateleft">
             <div class="vbut"></div>
             <div class="lbut"></div>
                 <div class="inner">
                     <h1 id="l">Login</h1>
                     <center>
-                    <input type="text" name="uname" id=0 onclick="clr(id)" placeholder= Username style="border-bottom: 2px; border-bottom :2px solid rgba(0,0,0,.20);" />
+                    <form action="log.php" id="frm" method="POST">
+                    <input type="text" name="uname" id=0 onclick="clr(id)"  onkeypress="clr(id)" placeholder= Username style="border-bottom: 2px; border-bottom :2px solid rgba(0,0,0,.20);" />
 
-                    <input type="password" name="pword" id=1 onclick="clr(id)" placeholder=Password />
+                    <input type="password" name="pword" id=1 onclick="clr(id)" onkeypress="clr(id)" placeholder=Password />
+                    <?php if(!isset($_SESSION)) 
+                        { 
+                            session_start(); 
+                            if($_SESSION['in']=='true')
+                        {
+                            echo "<p id='err' style='display:block;color:red'>username or password is incorrect !</p>";
+                        }
+                        }
+                        
+                        
+                    ?>
 
                     <input type="button" onclick="val()" name="su" value="Secure Login" style="cursor:pointer"/>
 
@@ -144,10 +157,11 @@
                     Sign in with Social Networks<br>
                     <button>Facebook</button>
                     <button style="background-color:rgb(217,76,62)">Google</button>
+                    </form>
                 </center>
             </div>
         </div>
-        </form>
+        
     </body>
 </html>
  
