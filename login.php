@@ -117,7 +117,6 @@
         </script>
     </head>
     <body>
-    <form action="" id="frm" method="POST">
         <!-- navigator -->
         <div id="nav">
                 <a href="home.html" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
@@ -127,6 +126,7 @@
                 <a href="cart.html">Bag</a>
         </div>
          <!-- navigator -->
+         <form action="" id="frm" method="POST">
         <div class="t animateleft">
             <div class="vbut"></div>
             <div class="lbut"></div>
@@ -137,8 +137,7 @@
 
                     <input type="password" name="pword" id=1 onclick="clr(id)" placeholder=Password />
 
-                    <input type="button" onclick="val()" name="submit" value="Secure Login" style="cursor:pointer"/>
-
+                    <input type="button" onclick="val()" name="su" value="Secure Login" style="cursor:pointer"/>
 
                     <br><br>Don't have an account ? <a href="reg.html">Sign up Now !</a><br><br>
                     <hr><br>
@@ -149,9 +148,6 @@
             </div>
         </div>
         </form>
-        <?php
-            
-        ?>
     </body>
 </html>
  
