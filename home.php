@@ -141,11 +141,11 @@
         </div>
          <!-- navigator -->
         <div id="nav">
-                <a href="home.html" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
+                <a href="home.php" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
                 </a>
-                <a href="reg.html">Sign up</a>
+                <a href="reg.php">Sign up</a>
                 <a href="login.php">Sign in</a>
-                <a href="cart.html">Bag</a>
+                <a href="cart.php">Bag</a>
         </div>
          <!-- navigator -->
          <div class=slider>
@@ -157,7 +157,7 @@
          </div>
     <div class="margin" style="overflow: hidden;">
         <div class="item_class">
-            <a href="item.html">
+            <a href="item.php">
                 <div class="item">
                     <div class="image">
                         <img src="images/test.png">
@@ -166,7 +166,7 @@
                     <div class="itname">Item name here</div></a>
                     <button class="ct">Add to bag </button>
             </div>
-            <a href="item.html">
+            <a href="item.php">
                 <div class="item">
                     <div class="image">
                         <img src="images/test.png">
@@ -176,7 +176,7 @@
                     <button class="ct">Add to bag </button>
                 </div>
             
-            <a href="item.html">
+            <a href="item.php">
                     <div class="item">
                         <div class="image">
                             <img src="images/test.png">
@@ -186,7 +186,7 @@
                         <button class="ct">Add to bag </button>
                     </div>
             
-            <a href="item.html">
+            <a href="item.php">
                     <div class="item">
                         <div class="image">
                             <img src="images/test.png">
@@ -195,7 +195,7 @@
                         <div class="itname">Item name here</div></a>
                         <button class="ct">Add to bag </button>
                     </div>
-            <a href="item.html">
+            <a href="item.php">
                     <div class="item">
                         <div class="image">
                             <img src="images/test.png">
@@ -204,7 +204,7 @@
                         <div class="itname">Item name here</div></a>
                         <button class="ct">Add to bag </button>
                     </div>
-            <a href="item.html">
+            <a href="item.php">
                     <div class="item">
                         <div class="image">
                             <img src="images/test.png">
@@ -213,7 +213,7 @@
                         <div class="itname">Item name here</div></a>
                         <button class="ct">Add to bag </button>
                     </div>
-            <a href="item.html">
+            <a href="item.php">
                     <div class="item">
                         <div class="image">
                             <img src="images/test.png">
@@ -222,7 +222,7 @@
                         <div class="itname">Item name here</div></a>
                         <button class="ct">Add to bag </button>
                     </div>
-            <a href="item.html">
+            <a href="item.php">
                     <div class="item">
                         <div class="image">
                             <img src="images/test.png">
@@ -231,7 +231,7 @@
                         <div class="itname">Item name here</div></a>
                         <button class="ct">Add to bag </button>
                     </div>
-            <a href="item.html">
+            <a href="item.php">
                     <div class="item">
                         <div class="image">
                             <img src="images/test.png">
@@ -240,7 +240,7 @@
                         <div class="itname">Item name here</div></a>
                         <button class="ct">Add to bag </button>
                     </div>
-            <a href="item.html">
+            <a href="item.php">
                     <div class="item">
                         <div class="image">
                             <img src="images/test.png">
@@ -249,7 +249,7 @@
                         <div class="itname">Item name here</div></a>
                         <button class="ct">Add to bag </button>
                     </div>
-            <a href="item.html">
+            <a href="item.php">
                     <div class="item">
                         <div class="image">
                             <img src="images/test.png">
@@ -258,7 +258,7 @@
                         <div class="itname">Item name here</div></a>
                         <button class="ct">Add to bag </button>
                     </div>
-            <a href="item.html">
+            <a href="item.php">
                     <div class="item">
                         <div class="image">
                             <img src="images/test.png">

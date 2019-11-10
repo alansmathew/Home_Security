@@ -156,11 +156,11 @@
     <body>
         <!-- navigator -->
         <div id="nav">
-            <a href="home.html" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
+            <a href="home.php" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
             </a>
-            <a href="reg.html">Sign up</a>
+            <a href="reg.php">Sign up</a>
             <a href="login.php">Sign in</a>
-            <a href="cart.html">Bag</a>
+            <a href="cart.php">Bag</a>
         </div>
          <!-- navigator -->
         <div class="t animateleft">

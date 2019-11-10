@@ -12,7 +12,7 @@
     $result=mysqli_query($con,$sql);
     if(mysqli_num_rows($result)>0)
     {
-        header("location:home.html");
+        header("location:home.php");
     }
     else{
         header("location:login_invalid.php");

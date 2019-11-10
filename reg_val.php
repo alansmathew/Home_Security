@@ -24,7 +24,7 @@
                 header("location:login.php");
             }
             else{
-                header("location:reg.html");
+                header("location:reg.php");
             }
         }
         else{
