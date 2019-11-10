@@ -148,15 +148,48 @@
                 <a href="cart.php">Bag</a>
         </div>
          <!-- navigator -->
-         <div class=slider>
+         <!-- <div class=slider>
                 <img src="images/1.jpg">
                 <img src="images/2.jpg">
                 <img src="images/3.jpg">
                 <img src="images/4.jpg">
                 <img src="images/5.jpg">
-         </div>
+         </div> -->
     <div class="margin" style="overflow: hidden;">
-        <div class="item_class">
+
+    <?php
+    $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+    $sql="select item_main_image,item_cost,item_name from tbl_items";
+    $result=mysqli_query($con,$sql);
+    while($row=mysqli_fetch_array($result))
+    {
+    ?>
+    <div class="item_class">
+     <a href="item.php">
+         <div class="item">
+            <div class="image">
+                <img src="images/<?php echo $row['item_main_image'];?>">
+            </div>
+            <div class="mn">$<?php echo $row['item_cost']; ?></div>
+             <div class="itname"><?php echo $row['item_name']; ?></div></a>
+             <button class="ct">Add to bag </button>
+        </div> 
+
+    <?php
+    }
+    ?>
+     <!-- <div class="item_class">
+     <a href="item.php">
+         <div class="item">
+             <div class="image">
+                 <img src="images/test.png">
+             </div>
+             <div class="mn">$00.00</div>
+             <div class="itname">Item name here</div></a>
+             <button class="ct">Add to bag </button>
+     </div>  -->
+
+        <!-- <div class="item_class">
             <a href="item.php">
                 <div class="item">
                     <div class="image">
@@ -273,7 +306,7 @@
             <div class="ftnote">
                 This website is created for study purpose only<br>
                 No &copy; reserved ! 
-            </div>
+            </div> -->
 
         </div>
         
