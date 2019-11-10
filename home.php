@@ -129,9 +129,15 @@
             100%{opacity:1;}
         }
         </style>
+        <script>
+            function val(){
+                document.getElementById("frm").submit();
+            }
+        </script>
         
     </head>
-    <body onscroll="fn()"> 
+    <body>
+    <form id="frm" method="POST" action="eval.php">
 
         <div id="main">
             <div class="container">
@@ -143,9 +149,18 @@
         <div id="nav">
                 <a href="home.php" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
                 </a>
-                <a href="reg.php">Sign up</a>
-                <a href="login.php">Sign in</a>
-                <a href="cart.php">Bag</a>
+                <?php
+                    session_start();
+                    if($_SESSION['user']<>'')
+                    {
+                        echo '<a href="">'.$_SESSION['user'].'</a>';
+                        echo '<a href="cart.php">Bag</a>';
+                    }
+                    else{
+                        echo '<a href="reg.php">Sign up</a>';
+                        echo '<a href="login.php">Sign in</a>';
+                    }
+                ?>
         </div>
          <!-- navigator -->
          <!-- <div class=slider>
@@ -156,50 +171,26 @@
                 <img src="images/5.jpg">
          </div> -->
     <div class="margin" style="overflow: hidden;">
-
+    <div class="item_class">
     <?php
     $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
-    $sql="select item_main_image,item_cost,item_name from tbl_items";
+    $sql="select item_id,item_main_image,item_cost,item_name from tbl_items";
     $result=mysqli_query($con,$sql);
     while($row=mysqli_fetch_array($result))
     {
     ?>
-    <div class="item_class">
-     <a href="item.php">
-         <div class="item">
+     <a onclick="val()">
+         <div class="item" name="ite" value="beelh">
             <div class="image">
                 <img src="images/<?php echo $row['item_main_image'];?>">
             </div>
             <div class="mn">$<?php echo $row['item_cost']; ?></div>
-             <div class="itname"><?php echo $row['item_name']; ?></div></a>
-             <button class="ct">Add to bag </button>
-        </div> 
-
+            <div class="itname"><?php echo $row['item_name']; ?></div></a>
+            <button class="ct">Add to bag </button>
     <?php
     }
     ?>
-     <!-- <div class="item_class">
-     <a href="item.php">
-         <div class="item">
-             <div class="image">
-                 <img src="images/test.png">
-             </div>
-             <div class="mn">$00.00</div>
-             <div class="itname">Item name here</div></a>
-             <button class="ct">Add to bag </button>
-     </div>  -->
-
-        <!-- <div class="item_class">
-            <a href="item.php">
-                <div class="item">
-                    <div class="image">
-                        <img src="images/test.png">
-                    </div>
-                    <div class="mn">$00.00</div>
-                    <div class="itname">Item name here</div></a>
-                    <button class="ct">Add to bag </button>
-            </div>
-            <a href="item.php">
+                <!-- <a href="item.php">
                 <div class="item">
                     <div class="image">
                         <img src="images/test.png">
@@ -208,107 +199,34 @@
                     <div class="itname">Item name here</div></a>
                     <button class="ct">Add to bag </button>
                 </div>
-            
-            <a href="item.php">
-                    <div class="item">
-                        <div class="image">
-                            <img src="images/test.png">
-                        </div>
-                        <div class="mn">$00.00</div>
-                        <div class="itname">Item name here</div></a>
-                        <button class="ct">Add to bag </button>
+                <a href="item.php">
+                <div class="item">
+                    <div class="image">
+                        <img src="images/test.png">
                     </div>
-            
-            <a href="item.php">
-                    <div class="item">
-                        <div class="image">
-                            <img src="images/test.png">
-                        </div>
-                        <div class="mn">$00.00</div>
-                        <div class="itname">Item name here</div></a>
-                        <button class="ct">Add to bag </button>
+                    <div class="mn">$00.00</div>
+                    <div class="itname">Item name here</div></a>
+                    <button class="ct">Add to bag </button>
+                </div>
+                <a href="item.php">
+                <div class="item">
+                    <div class="image">
+                        <img src="images/test.png">
                     </div>
-            <a href="item.php">
-                    <div class="item">
-                        <div class="image">
-                            <img src="images/test.png">
-                        </div>
-                        <div class="mn">$00.00</div>
-                        <div class="itname">Item name here</div></a>
-                        <button class="ct">Add to bag </button>
+                    <div class="mn">$00.00</div>
+                    <div class="itname">Item name here</div></a>
+                    <button class="ct">Add to bag </button>
+                </div>
+                <a href="item.php">
+                <div class="item">
+                    <div class="image">
+                        <img src="images/test.png">
                     </div>
-            <a href="item.php">
-                    <div class="item">
-                        <div class="image">
-                            <img src="images/test.png">
-                        </div>
-                        <div class="mn">$00.00</div>
-                        <div class="itname">Item name here</div></a>
-                        <button class="ct">Add to bag </button>
-                    </div>
-            <a href="item.php">
-                    <div class="item">
-                        <div class="image">
-                            <img src="images/test.png">
-                        </div>
-                        <div class="mn">$00.00</div>
-                        <div class="itname">Item name here</div></a>
-                        <button class="ct">Add to bag </button>
-                    </div>
-            <a href="item.php">
-                    <div class="item">
-                        <div class="image">
-                            <img src="images/test.png">
-                        </div>
-                        <div class="mn">$00.00</div>
-                        <div class="itname">Item name here</div></a>
-                        <button class="ct">Add to bag </button>
-                    </div>
-            <a href="item.php">
-                    <div class="item">
-                        <div class="image">
-                            <img src="images/test.png">
-                        </div>
-                        <div class="mn">$00.00</div>
-                        <div class="itname">Item name here</div></a>
-                        <button class="ct">Add to bag </button>
-                    </div>
-            <a href="item.php">
-                    <div class="item">
-                        <div class="image">
-                            <img src="images/test.png">
-                        </div>
-                        <div class="mn">$00.00</div>
-                        <div class="itname">Item name here</div></a>
-                        <button class="ct">Add to bag </button>
-                    </div>
-            <a href="item.php">
-                    <div class="item">
-                        <div class="image">
-                            <img src="images/test.png">
-                        </div>
-                        <div class="mn">$00.00</div>
-                        <div class="itname">Item name here</div></a>
-                        <button class="ct">Add to bag </button>
-                    </div>
-            <a href="item.php">
-                    <div class="item">
-                        <div class="image">
-                            <img src="images/test.png">
-                        </div>
-                        <div class="mn">$00.00</div>
-                        <div class="itname">Item name here</div></a>
-                        <button class="ct">Add to bag </button>
-                    </div>
-        </div>
+                    <div class="mn">$00.00</div>
+                    <div class="itname">Item name here</div></a>
+                    <button class="ct">Add to bag </button>
+             </div> -->
+    </div> 
     </div>
-        <div class="foot">
-            <div class="ftnote">
-                This website is created for study purpose only<br>
-                No &copy; reserved ! 
-            </div> -->
-
-        </div>
-        
     </body>
 </html>

@@ -20,6 +20,9 @@
 
      <div class="margin" style="margin-top:100px;">
          <div class="itemimage">
+             <!-- <?php 
+                echo $_POST['item_id'];
+             ?> -->
              <img src="images/test.png"/>
                 <div class="tumb">
                     <img src="images/test.png" alt=""/>

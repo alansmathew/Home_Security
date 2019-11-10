@@ -11,7 +11,11 @@
     $sql="select username,password from tbl_login where username='$username' and password='$password'";
     $result=mysqli_query($con,$sql);
     if(mysqli_num_rows($result)>0)
-    {
+    {   
+        
+        session_start();
+        //error_reporting(E_ERROR | E_PARSE);
+        $_SESSION['user']=$username;
         header("location:home.php");
     }
     else{
