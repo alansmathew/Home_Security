@@ -113,6 +113,7 @@
             }
             function clr(id){
                 document.getElementById('err').style.display="none";
+                document.getElementById(id).style.cssText="border-bottom :2px solid rgba(0,0,0,.20);;"
                 document.getElementById(id).placeholder=field[id];
             }
         </script>
@@ -138,8 +139,19 @@
                     <input type="text" name="uname" id=0 onclick="clr(id)"  onkeypress="clr(id)" placeholder= Username style="border-bottom: 2px; border-bottom :2px solid rgba(0,0,0,.20);" />
 
                     <input type="password" name="pword" id=1 onclick="clr(id)" onkeypress="clr(id)" placeholder=Password />
+                    <?php 
+                    ?>
+                        <script> 
+                            document.getElementById(0).style.cssText="border-bottom :2px solid red;"
+                            document.getElementById(1).style.cssText="border-bottom :2px solid red;"
+                        </script>
 
-                    <input type="button" onclick="val()" name="su" value="Secure Login" style="cursor:pointer"/>
+                    <?php
+                        echo "<p id='err' style='display:block;color:red'>username or password is incorrect !</p>";
+                    ?>
+
+                    <input type="button" onclick="val()" name="su" value="Secure Login" style="cursor:pointer"/>    
+                    
 
                     <br><br>Don't have an account ? <a href="reg.html">Sign up Now !</a><br><br>
                     <hr><br>

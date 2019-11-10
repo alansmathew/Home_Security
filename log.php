@@ -15,7 +15,7 @@
         header("location:home.html");
     }
     else{
-        header("location:t.php");
+        header("location:login_invalid.php");
     }
 ?>
 </body>
