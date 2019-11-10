@@ -78,7 +78,7 @@
                 height:60px;
                 border-radius: 50%;
             }
-            .animateleft{
+            /* .animateleft{
                     position:relative;
                     animation:animateleft 0.4s;
                 }
@@ -91,7 +91,7 @@
                         height:560px;
                         width:270px;
                     }
-                }
+                } */
         </style>
         <script>
             field=['Username','Password'];

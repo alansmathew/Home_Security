@@ -70,7 +70,7 @@
                 right:-11px;
                 background-color: rgba(29, 28, 28, 0.945);
             }
-            .animateleft{
+            /* .animateleft{
                     position:relative;
                     animation:animateleft 0.4s;
                 }
@@ -83,7 +83,7 @@
                         width:500px;
                         height:620px;
                     }
-            }
+            } */
             .inner input[type="button"]{
                 margin-top:20px;
                 border:none;
@@ -147,6 +147,10 @@
                 document.getElementById(box).style.cssText="color:rgb(94, 92, 92);border-bottom :2px solid rgba(0,0,0,.20);";
                 document.getElementById(box).focus();
             }
+            function err(){
+                document.getElementById('e').style.display="none";
+            }
+
         </script>
     </head>
     <body>
@@ -155,7 +159,7 @@
             <a href="home.html" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
             </a>
             <a href="reg.html">Sign up</a>
-            <a href="login.html">Sign in</a>
+            <a href="login.php">Sign in</a>
             <a href="cart.html">Bag</a>
         </div>
          <!-- navigator -->
@@ -166,13 +170,25 @@
                     <h1 id="l">Register</h1>
                     <center>
                     <form action="reg_val.php" id="frm" method="POST">
-                        <input type="text" placeholder="Name" id="0" name="name" onfocus="clr(0)"/>
-                        <input type="text" placeholder="Username" id="1" name="uname" onfocus="clr(1)"/>
-                        <input type="text" placeholder="Email" id="2" name="email" onfocus="clr(2)"/>
+                        <?php
+                            error_reporting(E_ERROR | E_PARSE);
+                            session_start();
+                            $name=$_SESSION['name'];
+                            $email=$_SESSION['email'];
+                            echo '<input type="text" placeholder="Name" id="0" name="name" onfocus="clr(0)" value='.$name.'>';
+                            echo '<input type="text" placeholder="Username" id="1" name="uname" onfocus="clr(1)" onclick="err();" style="border-color:brown;"/>';
+                            echo '<center><p id="e" style="color:red;display:block">username alrady exist !</p></center>';
+                            echo '<input type="text" placeholder="Email" id="2" name="email" onfocus="clr(2)" value='.$email.'>';
+                        
+                        ?>
+                        <!-- <input type="text" placeholder="Name" id="0" name="name" onfocus="clr(0)"/>
+                        <input type="text" placeholder="Username" id="1" name="uname" onfocus="clr(1)" onclick="err();" style="border-color:brown;"/>
+                        <center><p id="e" style="color:red;display:block">username alrady exist !</p></center>
+                        <input type="text" placeholder="Email" id="2" name="email" onfocus="clr(2)"/> -->
                         <input type="password" placeholder="Password" id="3" name="pword" onfocus="clr(3)"/>
                         <input type="password" placeholder="Confirm Password" id="4" onfocus="clr(4)"/>
                         <input type="button" onClick="validate()" value="Register"/>
-                        <br><br>Already have an account ? <a href="login.html">Sign in</a><br><br>
+                        <br><br>Already have an account ? <a href="login.php">Sign in</a><br><br>
                     </form>
                 </center>
                 </div>
