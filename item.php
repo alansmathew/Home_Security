@@ -164,11 +164,16 @@
             <div class="image">
                     <img src="images/<?php echo $row['item_main_image']?>"/>
                     <div class="temp">
-                        <img src="" alt="">
-                        <img src="" alt="">
-                        <img src="" alt="">
-                        <img src="" alt="">
-                        <img src="" alt="">
+                        <?php
+                            $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+                            $item=$_GET['id'];
+                            $qu="select image_name from tbl_item_images where item_id='$item'";
+                            $result2=mysqli_query($con,$qu);
+                            while($r=mysqli_fetch_array($result2))
+                            {
+                                echo '<img src="images/'.$r['image_name'].'" alt="">';
+                            }
+                        ?>
                     </div>
             </div>
     <!-- image section end  -->
