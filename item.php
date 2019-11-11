@@ -123,6 +123,8 @@
         height:200px;
         display:flex;
         align-items: center;
+        letter-spacing:1px;
+        text-align: left;
         /* background-color: blue; */
     }
     </style>
@@ -137,13 +139,13 @@
         <a href="cart.php">Bag</a>
 </div>
      <!-- navigator -->
-     <?php 
-                $item=$_GET['id'];
-                $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
-                $sql="select item_seller_name ,item_discription,item_main_image,item_cost,item_name from tbl_items where item_id=$item";
-                $result=mysqli_query($con,$sql);
-                $row=mysqli_fetch_array($result);
-            ?>
+        <?php 
+            $item=$_GET['id'];
+            $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+            $sql="select item_seller_name ,item_discription,item_main_image,item_cost,item_name from tbl_items where item_id=$item";
+            $result=mysqli_query($con,$sql);
+            $row=mysqli_fetch_array($result);
+        ?>
      <div class="margin" style="margin-top:100px;">
             <div class="image">
                     <img src="images/<?php echo $row['item_main_image']?>"/>
@@ -158,47 +160,31 @@
     <!-- image section end  -->
             <div class="dis">
                 <div class="mainpart">
-                    <h2>this is the item name</h2>
-                    <p class="seller">By </p>
+                    <h2><?php echo $row['item_name']; ?></h2>
+                    <p class="seller">By <?php echo $row['item_seller_name']?> </p>
                 </div>
                 <hr>
                 <div class="price">
                     <div class="pname">Special Price including all tax's</div>
                     <div class="pr">
-                        $200.5
+                        $<?php echo $row['item_cost']; ?>
                     </div> 
                 </div>
                 <div class="overviewpart">
                     <div class="head">
                             Discription
                     </div>
-                    <div class="discrib">kjbabjav fdvbd df   df dbfdfbl</div>
+                    <div class="discrib">
+                        <?php
+                            echo $row['item_discription'];
+                        ?>
+                    </div>
                 </div>
         </div>
         <!-- discription ends here -->
         <button class="opt" style="background-color:rgb(253,158,40)">Add to Wishlist</button>
         <button class="opt">Buy Now</button>
-
-
-
-
-
-
-
-
-
     </div>
-             
-             <!-- <h2><?php echo $row['item_name']; ?></h2>
-             <p>By <?php echo $row['item_seller_name']?> </p>
-             <hr width="100%">
-             <div class="pr">Price</div><div class="clr">$<?php echo $row['item_cost']; ?></div>
-             <button class="btn">Buy now </button>
-             <div class="dislist">
-                <?php
-                    echo $row['item_discription'];
-                ?>
-             </div> -->
      <div class="foot">
             <div class="ftnote">
                 This website is created for study purpose only<br>
