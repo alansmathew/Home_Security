@@ -125,7 +125,6 @@
                 </a>
                 <a href="reg.php">Sign up</a>
                 <a href="login.php">Sign in</a>
-                <a href="cart.php">Bag</a>
         </div>
          <!-- navigator -->
          

@@ -131,8 +131,8 @@
 
         <div id="main">
             <div class="container">
-                    <h1> Home Security</h1>
-                    <h2>Prevention is better than cure..</h2>
+                <h1> Home Security</h1>
+                <h2>Prevention is better than cure..</h2>
             </div>  
         </div>
          <!-- navigator -->
@@ -144,7 +144,7 @@
                     {
                         echo '<a href="">'.$_SESSION['user'].'</a>';
                         echo '<a href="cart.php">Bag</a>';
-                        echo '<a href=logout.php>Logout<?a>';
+                        echo '<a href="logout.php">Logout</a>';
                     }
                     else{
                         echo '<a href="reg.php">Sign up</a>';

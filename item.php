@@ -1,5 +1,8 @@
+<?php
+ session_start();
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -103,7 +106,9 @@
     }
     .overviewpart{
         position: relative;
-        margin:20px;
+        margin-top:150px;
+        margin-left:20px;
+        /* margin:20px; */
         height:200px;
         /* background-color: tomato; */
     }
@@ -130,15 +135,24 @@
     </style>
 </head>
 <body>
-    <!-- navigator -->
-    <div id="nav">
-        <a href="home.php" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
-        </a>
-        <a href="reg.php">Sign up</a>
-        <a href="login.php">Sign in</a>
-        <a href="cart.php">Bag</a>
-</div>
-     <!-- navigator -->
+         <!-- navigator -->
+         <div id="nav">
+                <a href="home.php" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
+                </a>
+                <?php
+                    if(isset($_SESSION['user']))
+                    {
+                        echo '<a href="">'.$_SESSION['user'].'</a>';
+                        echo '<a href="cart.php">Bag</a>';
+                        echo '<a href="logout.php">Logout</a>';
+                    }
+                    else{
+                        echo '<a href="reg.php">Sign up</a>';
+                        echo '<a href="login.php">Sign in</a>';
+                    }
+                ?>
+        </div>
+         <!-- navigator -->
         <?php 
             $item=$_GET['id'];
             $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
