@@ -177,5 +177,11 @@
     ?>
     </div> 
     </div>
+    <div class="foot">
+            <div class="ftnote">
+                This website is created for study purpose only<br>
+                No &copy; reserved ! 
+            </div>
+        </div>
     </body>
 </html>
