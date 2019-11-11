@@ -43,13 +43,15 @@
         /* background-color: blue; */
     }
     .temp img{
+        margin-top:10px;
         width:100px;
         height:100px;
         /* background-color: aqua; */
-        border:1px solid rgba(0, 0, 0, 0); 
+        border:1px solid rgba(0, 0, 0, 0.3); 
     }
     .temp img:hover{
         border:1px solid rgba(0, 0, 0, 0.952);
+        box-shadow: rgba(0, 0, 0, 0.5) .4px .4px 10px;
     }
     .dis{
         margin:20px;
