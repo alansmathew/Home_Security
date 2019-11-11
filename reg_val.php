@@ -15,7 +15,7 @@
         header("location:reg_invalid.php");
     }
     else{
-        $sql="insert into tbl_login(username,password) values('$username','$password')";
+        $sql="insert into tbl_login(username,password,status) values('$username','$password',1)";
         if(mysqli_query($con,$sql))
         {
             $id=mysqli_insert_id($con);

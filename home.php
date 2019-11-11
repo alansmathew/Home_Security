@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <html>
     <head>
@@ -10,6 +13,7 @@
             margin:auto;
         }
         .item_class{
+            position:relative;
             display: block;
             width:1200px;
 	        background:rgba(223, 223, 223, 0.378);
@@ -17,35 +21,16 @@
 	        margin:10;
             padding:20;    
         }  
-        
-        .item{
-            position: relative;
-            /* background-color: white; */
-            display:block;
-            float:left;
+        .box{
+            position:relative;
             height:390px;
             width:271px;
             margin:24px;
             margin-right:0;
-            animation:tran 0.8s;
-            /* box-shadow: 1px 1px 7px rgba(94, 93, 93, 0.233);  */
+            float:left;
         }
-        @keyframes tran {
-            from{
-                margin-top:100px;
-            }
-            to{
-                margin:10;
-            }
-            
-        }
-        .item:hover{
+        .box:hover{
             box-shadow: 3px 3px 10px rgba(34, 34, 34, 0.233);
-        }
-        .item img{
-            height:271px;
-            width:271px;
-            align-content: center;
         }
         .mn{
             color:rgba(175, 42, 42, 0.926);
@@ -150,7 +135,6 @@
                 <a href="home.php" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
                 </a>
                 <?php
-                    session_start();
                     if($_SESSION['user']<>'')
                     {
                         echo '<a href="">'.$_SESSION['user'].'</a>';
@@ -173,59 +157,23 @@
     <div class="margin" style="overflow: hidden;">
     <div class="item_class">
     <?php
-    $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
-    $sql="select item_id,item_main_image,item_cost,item_name from tbl_items";
-    $result=mysqli_query($con,$sql);
-    while($row=mysqli_fetch_array($result))
-    {
-    ?>
-     <a onclick="val()">
-         <div class="item" name="ite" value="beelh">
-            <div class="image">
-                <img src="images/<?php echo $row['item_main_image'];?>">
+        $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+        $sql="select item_id,item_main_image,item_cost,item_name from tbl_items";
+        $result=mysqli_query($con,$sql);
+        while($row=mysqli_fetch_array($result))
+        {
+            ?>
+            <div class="box">
+                <a href="item.php?id=<?php echo $row['item_id']; ?>">
+                    <img src="images/<?php echo $row['item_main_image'];?> "height=271px width=271px>
+                    <div class="mn">$<?php echo $row['item_cost']; ?></div>
+                    <div class="itname"><?php echo $row['item_name']; ?></div>
+                </a>
+                <button class="ct">Add to bag </button>
             </div>
-            <div class="mn">$<?php echo $row['item_cost']; ?></div>
-            <div class="itname"><?php echo $row['item_name']; ?></div></a>
-            <button class="ct">Add to bag </button>
-    <?php
-    }
+        <?php
+        }
     ?>
-                <!-- <a href="item.php">
-                <div class="item">
-                    <div class="image">
-                        <img src="images/test.png">
-                    </div>
-                    <div class="mn">$00.00</div>
-                    <div class="itname">Item name here</div></a>
-                    <button class="ct">Add to bag </button>
-                </div>
-                <a href="item.php">
-                <div class="item">
-                    <div class="image">
-                        <img src="images/test.png">
-                    </div>
-                    <div class="mn">$00.00</div>
-                    <div class="itname">Item name here</div></a>
-                    <button class="ct">Add to bag </button>
-                </div>
-                <a href="item.php">
-                <div class="item">
-                    <div class="image">
-                        <img src="images/test.png">
-                    </div>
-                    <div class="mn">$00.00</div>
-                    <div class="itname">Item name here</div></a>
-                    <button class="ct">Add to bag </button>
-                </div>
-                <a href="item.php">
-                <div class="item">
-                    <div class="image">
-                        <img src="images/test.png">
-                    </div>
-                    <div class="mn">$00.00</div>
-                    <div class="itname">Item name here</div></a>
-                    <button class="ct">Add to bag </button>
-             </div> -->
     </div> 
     </div>
     </body>
