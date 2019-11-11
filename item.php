@@ -5,62 +5,125 @@
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <title>Item</title>
     <style>
-    h2{
-        font-family:Herculanum;
-        font-size:25px;
-        color:rgba(46, 45, 45, 0.883);
-        letter-spacing: 1px;
-        margin:30px;
+    body{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: 500;
+        background-image: none;
+        font-size:14px;
+        /* background-color: bisque; */
     }
-    .pr{
-        margin-top:30px;
-        margin-left:30px;
+    .margin{
+        position: relative;
+        margin:auto;
+        width:1230px;
+        /* background-color: white; */
+        /* height:150vh; */
+    }
+    .image{
+        position:relative;
+        margin:20px;
+        width:600px;
+        height:650px;
         float:left;
-        font-size: 18px;
+        /* background-color: rgb(173, 150, 150); */
     }
-    .clr{
-        margin-top:27px;
-        margin-left:10px;
-        float:left;
-        color:brown;
-        font-size: 20px;
-        background-color:black;
-    }
-    .btn{
-        font-size: 16px;
-        height: 34px;
-        color:black;
-        background-color: rgba(245, 181, 84, 0.755);
-        border-radius: 5px;
-        border: solid rgba(40, 40, 40, 0.358) 1px;
-        width:300px;
-        margin-top:25px;
-        margin-right:70px;
+    .image img{
+        width:480px;
+        height:550px;
         float:right;
     }
-    @font-face{
-        font-family: Herculanum;
-        src:url("fonts/Microsoft\ Sans\ Serif.ttf");
+    .temp{
+        margin:20px;
+        position:absolute;
+        width:100px;
+        height:600px;
+        /* background-color: blue; */
     }
-    p{
-        color:rgba(76, 76, 243, 0.733);
-        margin:30px;
+    .temp img{
+        width:100px;
+        height:100px;
+        /* background-color: aqua; */
+        border:1px solid rgba(0, 0, 0, 0); 
     }
-    hr{
-        border:1px solid rgba(160, 160, 160, 0.205);
-        width:92%;
+    .temp img:hover{
+        border:1px solid rgba(0, 0, 0, 0.952);
     }
-    .dislist{
-        border:1px solid black;
-        border-radius:10px;
-        box-shadow:orange 1px 1px 10px;
-        padding:30px;
-        font-family:Herculanum;
-        font-size:15px;
+    .dis{
+        margin:20px;
+        float:right;
+        width:550px;
+        height:900px;
+        /* background-color: blueviolet; */
+    }
+    .opt{
+        cursor: pointer;
+        margin:20px;
+        display:block;
         position:relative;
         float:left;
-        margin:30px;
-        width: 600px;
+        color:white;
+        border:none;
+        width:280px;
+        height:55px;
+        font-size: 16px;
+        border-radius: 3px;
+        box-shadow:rgba(0, 0, 0, 0.5) .4px .4px 4px;
+        background-color: rgb(248,100,44);
+    }
+    .opt:hover{
+        box-shadow:rgba(0, 0, 0, 0.685) .4px .4px 6px;
+    }
+    .mainpart{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-weight: 500;
+        margin:20px;
+        width:510px;
+        /* height:70px; */
+        /* background-color: aqua; */
+    }
+    h2{
+        font-size:34px;
+    }
+    hr{
+        margin:2px;
+        border:1px solid rgba(66, 64, 64, 0.5);
+    }
+    .price{
+        margin:20px;
+        /* background-color: aqua; */
+        height:50px;
+    }
+    .pname{
+        color:rgb(5, 95, 5);
+    }
+    .pr{
+        margin-top:10px;
+        color:brown;
+        font-size: 30px;
+    }
+    .overviewpart{
+        position: relative;
+        margin:20px;
+        height:200px;
+        /* background-color: tomato; */
+    }
+    .head{
+        float:left;
+        display: flex;
+        align-items: center;
+        position:absolute;
+        width:130px;
+        height:100%;
+        color:gray;
+    }
+    .discrib{
+        position:absolute;
+        right:0px;
+        width:380px;
+        height:200px;
+        display:flex;
+        align-items: center;
+        /* background-color: blue; */
     }
     </style>
 </head>
@@ -74,27 +137,59 @@
         <a href="cart.php">Bag</a>
 </div>
      <!-- navigator -->
-
-     <div class="margin" style="margin-top:100px;">
-         <div class="itemimage">
-             <?php 
+     <?php 
                 $item=$_GET['id'];
                 $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
                 $sql="select item_seller_name ,item_discription,item_main_image,item_cost,item_name from tbl_items where item_id=$item";
                 $result=mysqli_query($con,$sql);
                 $row=mysqli_fetch_array($result);
-             ?>
-             <img src="images/<?php echo $row['item_main_image']?>" width=400px height=500px/>
-                <div class="tumb">
-                    <img src="images/test.png" alt=""/>
-                    <img src="images/test.png" alt=""/>
-                    <img src="images/test.png" alt=""/>
-                    <img src="images/test.png" alt=""/>
-                    <!-- <h3>item images</h3> -->
+            ?>
+     <div class="margin" style="margin-top:100px;">
+            <div class="image">
+                    <img src="images/<?php echo $row['item_main_image']?>"/>
+                    <div class="temp">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                        <img src="" alt="">
+                    </div>
+            </div>
+    <!-- image section end  -->
+            <div class="dis">
+                <div class="mainpart">
+                    <h2>this is the item name</h2>
+                    <p class="seller">By </p>
                 </div>
-         </div>
-         <div class="itemdis">
-             <h2><?php echo $row['item_name']; ?></h2>
+                <hr>
+                <div class="price">
+                    <div class="pname">Special Price including all tax's</div>
+                    <div class="pr">
+                        $200.5
+                    </div> 
+                </div>
+                <div class="overviewpart">
+                    <div class="head">
+                            Discription
+                    </div>
+                    <div class="discrib">kjbabjav fdvbd df   df dbfdfbl</div>
+                </div>
+        </div>
+        <!-- discription ends here -->
+        <button class="opt" style="background-color:rgb(253,158,40)">Add to Wishlist</button>
+        <button class="opt">Buy Now</button>
+
+
+
+
+
+
+
+
+
+    </div>
+             
+             <!-- <h2><?php echo $row['item_name']; ?></h2>
              <p>By <?php echo $row['item_seller_name']?> </p>
              <hr width="100%">
              <div class="pr">Price</div><div class="clr">$<?php echo $row['item_cost']; ?></div>
@@ -103,9 +198,7 @@
                 <?php
                     echo $row['item_discription'];
                 ?>
-             </div>
-         </div>
-     </div>
+             </div> -->
      <div class="foot">
             <div class="ftnote">
                 This website is created for study purpose only<br>

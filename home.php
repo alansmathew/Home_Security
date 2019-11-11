@@ -7,16 +7,21 @@
         <title>Home Security</title>
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <style>
+            body{
+                background-color:white;
+                background-image:none;
+            }
         .margin{
             top:300px;
             width:1230px;
             margin:auto;
+            background-color:white;
         }
         .item_class{
             position:relative;
             display: block;
             width:1200px;
-	        background:rgba(223, 223, 223, 0.378);
+	        /* background:rgba(223, 223, 223, 0.378); */
 	        float:left;
 	        margin:10;
             padding:20;    
