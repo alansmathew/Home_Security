@@ -135,10 +135,11 @@
                 <a href="home.php" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
                 </a>
                 <?php
-                    if($_SESSION['user']<>'')
+                    if(isset($_SESSION['user']))
                     {
                         echo '<a href="">'.$_SESSION['user'].'</a>';
                         echo '<a href="cart.php">Bag</a>';
+                        echo '<a href=logout.php>Logout<?a>';
                     }
                     else{
                         echo '<a href="reg.php">Sign up</a>';
