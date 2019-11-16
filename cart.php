@@ -1,3 +1,8 @@
+<?php
+session_start();
+    if(isset($_SESSION['user']))
+    {
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +13,21 @@
 <body>
     <!-- navigator -->
     <div id="nav">
-            <a href="home.php" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
-            </a>
-            <a href="reg.php">Sign up</a>
-            <a href="login.php">Sign in</a>
-            <a href="cart.php">Bag</a>
-    </div>
+                <a href="home.php" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
+                </a>
+                <?php
+                    echo '<a href="">'.$_SESSION['user'].'</a>';
+                    echo '<a href="cart.php">Bag</a>';
+                    echo '<a href="logout.php">Logout</a>';
+                ?>
+        </div>
      <!-- navigator -->
     <div class="margin" style="margin-top: 100px;">
         <div class="checkout"> final checkout block</div>
+        <?php
+            $reg_id=$_SESSION["reg_id"];
+            
+        ?>
         <a href="item.php"><div class="cartitems">
             <img alt="image">
             <div class="dis"><h3>short item discription</h3></div>
@@ -50,3 +61,9 @@
         </div>
 </body>
 </html>
+
+<?php
+    }    
+    else{
+        header("location:home.php");
+}
