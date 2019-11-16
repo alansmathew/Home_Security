@@ -136,6 +136,13 @@
                 <?php
                     if(isset($_SESSION['user']))
                     {
+                        $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+                        $user=$_SESSION['user'];
+                        $sql="select reg_id from tbl_reg where login_id=(select login_id from tbl_login where username='$user')";
+                        $result=mysqli_query($con,$sql);
+                        $row=mysqli_fetch_array($result);
+                        $_SESSION['reg_id']=$row['reg_id'];
+
                         echo '<a href="">'.$_SESSION['user'].'</a>';
                         echo '<a href="cart.php">Bag</a>';
                         echo '<a href="logout.php">Logout</a>';
