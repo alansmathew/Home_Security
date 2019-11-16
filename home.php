@@ -119,12 +119,6 @@
             100%{opacity:1;}
         }
         </style>
-        <script>
-            function val(){
-                document.getElementById("frm").submit();
-            }
-        </script>
-        
     </head>
     <body>
     <form id="frm" method="POST" action="eval.php">

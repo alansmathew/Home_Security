@@ -141,10 +141,10 @@
                     <input type="button" onclick="val()" name="su" value="Secure Login" style="cursor:pointer"/>
 
                     <br><br>Don't have an account ? <a href="reg.php">Sign up Now !</a><br><br>
-                    <hr><br>
-                    Sign in with Social Networks<br>
+                    <!-- <hr><br> -->
+                    <!-- Sign in with Social Networks<br>
                     <button>Facebook</button>
-                    <button style="background-color:rgb(217,76,62)">Google</button>
+                    <button style="background-color:rgb(217,76,62)">Google</button> -->
                     </form>
                 </center>
             </div>

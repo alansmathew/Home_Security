@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
     <head>
+        <title>forget</title>
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <style>
             .t{
@@ -78,7 +79,7 @@
                 height:60px;
                 border-radius: 50%;
             }
-            /* .animateleft{
+            .animateleft{
                     position:relative;
                     animation:animateleft 0.4s;
                 }
@@ -91,30 +92,35 @@
                         height:560px;
                         width:270px;
                     }
-                } */
+                }
         </style>
         <script>
-            field=['Username','Password'];
+            patt=/^([A-Za-z0-9\.]{4,30})+@[a-z\.]+\.+[a-z]+$/;
             function val(){
                 flag=true;
-                for(var i=0;i<=1;i++)
+                for(var i=0;i<1;i++)
                 {
                     el=document.getElementById(i);
                     if(el.value=="")
                     {
+                        // alert("placeholder")
                         el.placeholder="Cant be empty !";
                         flag=false;
                         el.style.cssText="border-bottom :2px solid red";
                     }
+                    else if(!el.value.match(patt)){
+                            document.getElementById(i).value="";
+                            document.getElementById(i).placeholder="Enter a valid email";
+                            document.getElementById(i).style.cssText="border-color:brown;";
+					        flag=false;
+				        }
                 }
                 if(flag==true){
-                    document.getElementById('frm').submit();
+                    
                 }
             }
             function clr(id){
-                document.getElementById('err').style.display="none";
-                document.getElementById(id).style.cssText="border-bottom :2px solid rgba(0,0,0,.20);;"
-                document.getElementById(id).placeholder=field[id];
+                document.getElementById(id).placeholder="Recovery email";
             }
         </script>
     </head>
@@ -124,7 +130,6 @@
                 <a href="home.php" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
                 </a>
                 <a href="reg.php">Sign up</a>
-                <a href="login.php">Sign in</a>
         </div>
          <!-- navigator -->
          
@@ -132,37 +137,15 @@
             <div class="vbut"></div>
             <div class="lbut"></div>
                 <div class="inner">
-                    <h1 id="l">Login</h1>
+                    <h1 id="l">Forget password</h1>
                     <center>
-                    <form action="log.php" id="frm" method="POST">
-                    <input type="text" name="uname" id=0 onclick="clr(id)"  onkeypress="clr(id)" placeholder= Username style="border-bottom: 2px; border-bottom :2px solid rgba(0,0,0,.20);" />
+                    <form action="" id="frm" method="POST">
+                    <input type="text" name="uname" id=0 onclick="clr(id)" onkeypress="clr(id)" placeholder="Recovery email" style="margin-top:50px;border-bottom: 2px; border-bottom :2px solid rgba(0,0,0,.20);" />
 
-                    <input type="password" name="pword" id=1 onclick="clr(id)" onkeypress="clr(id)" placeholder=Password />
-                    <?php 
-                    ?>
-                        <script> 
-                            document.getElementById(0).style.cssText="border-bottom :2px solid red;"
-                            document.getElementById(1).style.cssText="border-bottom :2px solid red;"
-                        </script>
-
-                    <?php
-                        echo "<p id='err' style='display:block;color:red'>username or password is incorrect !</p>";
-                    ?>
-
-                    <input type="button" onclick="val()" name="su" value="Secure Login" style="cursor:pointer"/>    
-                    
-
-                    <br><br>Don't have an account ? <a href="reg.php">Sign up Now !</a><br><br>
-                    <br><a href="forget.php"> Forget Password !</a>
-                    <!-- <hr><br>
-                    Sign in with Social Networks<br>
-                    <button>Facebook</button>
-                    <button style="background-color:rgb(217,76,62)">Google</button> -->
+                    <input type="button" onclick="val()" name="su" value="Reset" style="cursor:pointer"/>
                     </form>
                 </center>
             </div>
         </div>
         
     </body>
-</html>
- 
