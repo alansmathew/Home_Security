@@ -70,22 +70,12 @@
         }
         #nav{
             font-family:Andale Mono;
-            position: sticky;
+            position:sticky;
             z-index:1;
             top:0px;
-            width:100%;
-            padding:30px;
+            width:96.45%;
             background-color:rgb(11,25,	46);
             text-align: center;
-        }
-        #nav a{
-            text-decoration: none;
-            color:white;
-            font-size: 18px;
-            margin:20px;
-        }
-        #nav a:hover{
-            color:rgb(100,234,203);
         }
         #main{
             position: relative;
@@ -176,7 +166,11 @@
                     <div class="mn">$<?php echo $row['item_cost']; ?></div>
                     <div class="itname"><?php echo $row['item_name']; ?></div>
                 </a>
-                <button class="ct">Add to bag </button>
+                <?php 
+                if(isset($_SESSION['user'])){
+                   echo '<button class="ct">Add to bag </button>';
+                }
+                ?>
             </div>
         <?php
         }

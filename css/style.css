@@ -186,36 +186,8 @@ h1{
     height:200px;
     background-color: aquamarine;
 }
-.cartitems{
-    border-radius: 20px;
-    margin:10px;
-    padding: 10px;
-    width:900px;
-    height:150px;
-    /* background-color: rgba(94, 91, 90, 0.228); */
-    float: left;
-    display: block;
-}
-.cartitems img{
-    float: left;
-    border-radius: 20px 0px 0px 20px;
-    width:150px;
-    height: 150px;
-    background-color: azure;
-}
-.dis{
-    float: left;
-    width:750px;
-    height: 150px;
-    background-color:rgba(255, 255, 255, 0.81);
-    border-radius: 2px 20px 20px 0px;
-}
-.cartitems img:hover{
-    box-shadow: 1px 1px 12px rgba(28, 27, 27, 0.625);
-}
-.cartitems:hover{
-    box-shadow: 1px 1px 9px rgba(28, 27, 27, 0.344);
-}
+
+
 .checkout{
     border-radius: 20px;
     margin-top:20px;
@@ -242,23 +214,4 @@ h1{
 @keyframes header{
     from{margin-top:100px;}
     to{margin-top:0px;}
-}
-
-.container h2{
-    font-family:Zapfino;
-    letter-spacing: 1.5px;
-    text-shadow: rgba(142, 142, 142, 0.652) 1px 1px 12;
-    /* font-family:Andale Mono; */
-    font-weight: 20px;
-    color: rgba(216, 216, 216, 0.824);
-    animation:header2 ease-in 1.1s;
-}
-@keyframes header2{
-    from{  
-            margin-top:100px;
-            opacity:0;
-    }
-    to{     margin-top:14px;
-            opacity:1;
-    }
 }

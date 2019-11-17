@@ -195,6 +195,9 @@
         right:150px;
         transition: all 10s ease-in;
     }
+    .wish{
+        
+    }
     </style>
 </head>
 <body>
@@ -253,6 +256,10 @@
                         $<?php echo $row['item_cost']; ?>
                     </div> 
                 </div>
+                <div class="wish">
+                    <button>Add to wishlist</button>
+                </div>
+
                 <div class="overviewpart">
                     <div class="head">
                             Discription
