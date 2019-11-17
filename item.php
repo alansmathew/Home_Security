@@ -212,6 +212,33 @@
         right:150px;
         transition: all 10s ease-in;
     }
+    .tick{
+        display:none;
+        transition: transform 1s;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -30%);
+        position: absolute;
+        margin:10px;
+        width:250px;
+        height:250px;
+        background-color: rgba(170, 167, 167, 0.76);
+        border-radius: 10px;
+    }
+    .check.icon {
+        color: #000;
+        position: absolute;
+        top: 30%;
+        left: 30%;
+        margin-left:auto;
+        margin-top:auto;
+        width: 100px;
+        height: 45px;
+        border-bottom: solid 1px currentColor;
+        border-left: solid 1px currentColor;
+        -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+    }
     </style>
 </head>
 <body>
@@ -292,7 +319,7 @@
         {
             ?>
             <button class="opt" onclick="purchase(<?php echo $item ?>)" style="background-color:rgb(253,158,40)">Add to Bag</button>
-            <button class="opt" >Buy Now</button>
+            <button class="opt" >Buy Now</button><a>
             <?php
         }
         else{
@@ -312,6 +339,11 @@
 	                </div>
                 </div>
     </div>
+        <div class="tick" id="tic">
+            <div class="check icon"></div>
+        </div>
+    </div>
+    
      <div class="foot">
             <div class="ftnote">
                 This website is created for study purpose only<br>
@@ -320,11 +352,17 @@
 
         </div>
     <script>
+        function diss(){
+            document.getElementById("tic").style.display="none";
+        }
         var xmlhttp = new XMLHttpRequest();
         function purchase(x){
             var url="purchase.php?id="+x;
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
+            document.getElementById("tic").style.display="block";
+            setTimeout(diss, 700);
+            // document.getElementById("tic").style.display="none";
         }
         function wishlist(){
             xmlhttp.open("POST", "wish.php", true);
