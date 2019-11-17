@@ -18,6 +18,7 @@ session_start();
             font-size: 18px;
         }
 .cartitems{
+    transition: transform .2s; 
     margin:10px;
     padding: 10px;
     width:900px;
@@ -28,6 +29,7 @@ session_start();
     display: block;
 }
 .cartitems img{
+
     float: left;
     border-radius: 20px 0px 0px 20px;
     width:250px;
@@ -35,10 +37,8 @@ session_start();
     /* border:1px solid black; */
     /* background-color: azure; */
 }
-.cartitems img:hover{
-    border-bottom: 1px solid rgba(0, 0, 0, 1);
-}
 .cartitems:hover{
+    transform: scale(1.04);
     border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 .dis{
@@ -49,7 +49,7 @@ session_start();
     /* border-radius: 2px 20px 20px 0px; */
 }
 .foot{
-    position:absolute;
+    position:relative;
     bottom: 0px;
 }
     </style>
@@ -61,6 +61,7 @@ session_start();
                 </a>
                 <?php
                     echo '<a href="">'.$_SESSION['user'].'</a>';
+                    echo '<a href="wishlist.php">Wishlist</a>';
                     echo '<a href="cart.php">Bag</a>';
                     echo '<a href="logout.php">Logout</a>';
                 ?>

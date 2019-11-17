@@ -102,9 +102,26 @@
         color:rgb(5, 95, 5);
     }
     .pr{
+        position: relative;
         margin-top:10px;
         color:brown;
         font-size: 30px;
+        width:80%;
+    }
+    .pr button{
+        font-size:14px;
+        color:rgb(216, 148, 22);
+        background-color: rgb(245, 247, 250);
+        position:absolute;
+        width:150px;
+        height:34px;
+        right:20px;
+        border-radius: 5px;
+        border: solid rgba(40, 40, 40, 0.358) 1px;
+    }
+    .pr button:hover{
+        font-size:15px;
+        border:1px solid rgba(40, 40, 40, 0.8) ;
     }
     .overviewpart{
         position: relative;
@@ -195,9 +212,6 @@
         right:150px;
         transition: all 10s ease-in;
     }
-    .wish{
-        
-    }
     </style>
 </head>
 <body>
@@ -209,6 +223,7 @@
                     if(isset($_SESSION['user']))
                     {
                         echo '<a href="">'.$_SESSION['user'].'</a>';
+                        echo '<a href="wishlist.php">Wishlist</a>';
                         echo '<a href="cart.php">Bag</a>';
                         echo '<a href="logout.php">Logout</a>';
                     }
@@ -254,10 +269,8 @@
                     <div class="pname">Special Price including all tax's</div>
                     <div class="pr">
                         $<?php echo $row['item_cost']; ?>
+                        <button onclick="wishlist()">Add to wishlist</button>
                     </div> 
-                </div>
-                <div class="wish">
-                    <button>Add to wishlist</button>
                 </div>
 
                 <div class="overviewpart">
@@ -278,8 +291,8 @@
         if(isset($_SESSION['user']))
         {
             ?>
-            <button class="opt" style="background-color:rgb(253,158,40)">Add to Wishlist</button>
-            <button class="opt" onclick="purchase()">Buy Now</button>
+            <button class="opt" onclick="purchase()" style="background-color:rgb(253,158,40)">Add to Bag</button>
+            <button class="opt" >Buy Now</button>
             <?php
         }
         else{
@@ -307,9 +320,13 @@
 
         </div>
     <script>
+        var xmlhttp = new XMLHttpRequest();
         function purchase(){
-            var xmlhttp = new XMLHttpRequest();
             xmlhttp.open("POST", "purchase.php", true);
+            xmlhttp.send();
+        }
+        function wishlist(){
+            xmlhttp.open("POST", "wish.php", true);
             xmlhttp.send();
         }
     </script>

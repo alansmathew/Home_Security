@@ -111,7 +111,6 @@
         </style>
     </head>
     <body>
-    <form id="frm" method="POST" action="eval.php">
 
         <div id="main">
             <div class="container">
@@ -134,6 +133,7 @@
                         $_SESSION['reg_id']=$row['reg_id'];
 
                         echo '<a href="">'.$_SESSION['user'].'</a>';
+                        echo '<a href="wishlist.php">Wishlist</a>';
                         echo '<a href="cart.php">Bag</a>';
                         echo '<a href="logout.php">Logout</a>';
                     }
@@ -168,7 +168,11 @@
                 </a>
                 <?php 
                 if(isset($_SESSION['user'])){
-                   echo '<button class="ct">Add to bag </button>';
+                    ?>
+                    <a href="item.php?id=<?php echo $row['item_id']; ?>">
+                        <button class="ct" onclick="purchase()">Add to bag </button>
+                    </a>
+                    <?php
                 }
                 ?>
             </div>
@@ -183,5 +187,12 @@
                 No &copy; reserved ! 
             </div>
         </div>
+        <script>
+        var xmlhttp = new XMLHttpRequest();
+        function purchase(){
+            xmlhttp.open("GET", "purchase.php", true);
+            xmlhttp.send();
+        }
+        </script>
     </body>
 </html>

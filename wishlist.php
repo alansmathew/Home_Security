@@ -1,3 +1,8 @@
+<?php
+session_start();
+    if(isset($_SESSION['user']))
+    {  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,38 +69,43 @@
                 <a href="home.php" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
                 </a>
                 <?php
-                    if(isset($_SESSION['user']))
-                    {
-                        $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
-                        $user=$_SESSION['user'];
-                        $sql="select reg_id from tbl_reg where login_id=(select login_id from tbl_login where username='$user')";
-                        $result=mysqli_query($con,$sql);
-                        $row=mysqli_fetch_array($result);
-                        $_SESSION['reg_id']=$row['reg_id'];
-
                         echo '<a href="">'.$_SESSION['user'].'</a>';
+                        echo '<a href="wishlist.php">Wishlist</a>';
                         echo '<a href="cart.php">Bag</a>';
                         echo '<a href="logout.php">Logout</a>';
-                    }
-                    else{
-                        echo '<a href="reg.php">Sign up</a>';
-                        echo '<a href="login.php">Sign in</a>';
-                    }
+    
                 ?>
         </div>
 
     <center><h2 style="margin-top:150px;">User wishlist</h2></center><br>
     <hr>
     <div class="margin">
-
-            <div class="box">
-                <a href="item.php?id=<?php echo $row['item_id']; ?>">
-                    <img src="images/<?php echo $row['item_main_image'];?> "height=375px width=375px>
-                    <div class="mn">$<?php echo $row['item_cost']; ?></div>
-                    <div class="itname"><?php echo $row['item_name']; ?></div>
-                    <button class="ct">Add to bag </button>
-                </a>
-            </div>
+            <?php 
+                $reg_id=$_SESSION["reg_id"];
+                $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+                $sql="select * from tbl_wishlist where reg_id='$reg_id'";
+                $result=mysqli_query($con,$sql);
+                while($row=mysqli_fetch_array($result))
+                {
+                    $item_id=$row["item_id"];
+                    $q="select * from tbl_items where item_id='$item_id'";
+                    $resulti=mysqli_query($con,$q);
+                    $rowi=mysqli_fetch_array($resulti);
+                    $image="images/".$rowi['item_main_image'];
+                    ?>
+                    <div class="box">
+                        <a href="item.php?id=<?php echo $rowi['item_id']; ?>">
+                            <img src="<?php echo $image ?>" height=375px width=375px>
+                            <div class="mn">$<?php echo $rowi['item_cost']; ?></div>
+                            <div class="itname"><?php echo $rowi['item_name']; ?></div>
+                            </a>
+                            <a href="">
+                                <button class="ct" onclick="purchase()">Add to bag </button>
+                            </a>
+                    </div>
+                    <?php
+                }  
+                ?>
     </div>
 
     <div class="foot">
@@ -105,4 +115,16 @@
             </div>
     </div>
 </body>
+<script>
+        var xmlhttp = new XMLHttpRequest();
+        function purchase(){
+            xmlhttp.open("POST", "purchase.php", true);
+            xmlhttp.send();
+        }
+</script>
 </html>
+<?php
+    }    
+    else{
+        header("location:home.php");
+}
