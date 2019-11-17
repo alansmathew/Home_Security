@@ -291,7 +291,7 @@
         if(isset($_SESSION['user']))
         {
             ?>
-            <button class="opt" onclick="purchase()" style="background-color:rgb(253,158,40)">Add to Bag</button>
+            <button class="opt" onclick="purchase(<?php echo $item ?>)" style="background-color:rgb(253,158,40)">Add to Bag</button>
             <button class="opt" >Buy Now</button>
             <?php
         }
@@ -321,8 +321,9 @@
         </div>
     <script>
         var xmlhttp = new XMLHttpRequest();
-        function purchase(){
-            xmlhttp.open("POST", "purchase.php", true);
+        function purchase(x){
+            var url="purchase.php?id="+x;
+            xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
         function wishlist(){

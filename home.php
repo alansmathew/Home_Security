@@ -169,9 +169,7 @@
                 <?php 
                 if(isset($_SESSION['user'])){
                     ?>
-                    <a href="item.php?id=<?php echo $row['item_id']; ?>">
-                        <button class="ct" onclick="purchase()">Add to bag </button>
-                    </a>
+                        <button class="ct" onclick="purchase(<?php echo $row['item_id'] ?>)">Add to bag </button>
                     <?php
                 }
                 ?>
@@ -189,8 +187,9 @@
         </div>
         <script>
         var xmlhttp = new XMLHttpRequest();
-        function purchase(){
-            xmlhttp.open("GET", "purchase.php", true);
+        function purchase(x){
+            var url="purchase.php?id="+x;
+            xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
         </script>

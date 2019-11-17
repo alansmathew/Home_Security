@@ -77,7 +77,7 @@ session_start();
                 ?>
         </div>
 
-    <center><h2 style="margin-top:150px;">User wishlist</h2></center><br>
+    <center><h2 style="margin-top:150px;"><?php echo $_SESSION['user']?>'s wishlist</h2></center><br>
     <hr>
     <div class="margin">
             <?php 
@@ -99,9 +99,7 @@ session_start();
                             <div class="mn">$<?php echo $rowi['item_cost']; ?></div>
                             <div class="itname"><?php echo $rowi['item_name']; ?></div>
                             </a>
-                            <a href="">
-                                <button class="ct" onclick="purchase()">Add to bag </button>
-                            </a>
+                            <button class="ct" onclick="purchase(<?php echo $row['item_id'] ?>)">Add to bag </button>
                     </div>
                     <?php
                 }  
@@ -117,8 +115,9 @@ session_start();
 </body>
 <script>
         var xmlhttp = new XMLHttpRequest();
-        function purchase(){
-            xmlhttp.open("POST", "purchase.php", true);
+        function purchase(x){
+            var url="purchase.php?id="+x;
+            xmlhttp.open("GET", url, true);
             xmlhttp.send();
         }
 </script>
