@@ -212,33 +212,7 @@
         right:150px;
         transition: all 10s ease-in;
     }
-    .tick{
-        display:none;
-        transition: transform 1s;
-        top:50%;
-        left:50%;
-        transform: translate(-50%, -30%);
-        position: absolute;
-        margin:10px;
-        width:250px;
-        height:250px;
-        background-color: rgba(170, 167, 167, 0.76);
-        border-radius: 10px;
-    }
-    .check.icon {
-        color: #000;
-        position: absolute;
-        top: 30%;
-        left: 30%;
-        margin-left:auto;
-        margin-top:auto;
-        width: 100px;
-        height: 45px;
-        border-bottom: solid 1px currentColor;
-        border-left: solid 1px currentColor;
-        -webkit-transform: rotate(-45deg);
-                transform: rotate(-45deg);
-    }
+
     </style>
 </head>
 <body>

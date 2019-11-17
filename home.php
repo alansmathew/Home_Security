@@ -179,18 +179,26 @@
     ?>
     </div> 
     </div>
+    <div class="tick" id="tic" >
+        <div class="check icon"></div>
+    </div>
     <div class="foot">
             <div class="ftnote">
                 This website is created for study purpose only<br>
                 No &copy; reserved ! 
             </div>
-        </div>
+    </div>
         <script>
+        function diss(){
+            document.getElementById("tic").style.display="none";
+        }
         var xmlhttp = new XMLHttpRequest();
         function purchase(x){
             var url="purchase.php?id="+x;
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
+            document.getElementById("tic").style.display="block";
+            setTimeout(diss, 700);
         }
         </script>
     </body>
