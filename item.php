@@ -341,6 +341,8 @@
         function wishlist(){
             xmlhttp.open("POST", "wish.php", true);
             xmlhttp.send();
+            document.getElementById("tic").style.display="block";
+            setTimeout(diss, 700);
         }
     </script>
 </body>

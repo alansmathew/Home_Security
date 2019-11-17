@@ -13,10 +13,7 @@ session_start();
         body {
             background-image: none;
         }
-        h2{
-            color:gray;
-            font-size: 18px;
-        }
+
 .cartitems{
     transition: transform .2s; 
     margin:10px;
@@ -29,7 +26,6 @@ session_start();
     display: block;
 }
 .cartitems img{
-
     float: left;
     border-radius: 20px 0px 0px 20px;
     width:250px;
@@ -42,15 +38,43 @@ session_start();
     border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 .dis{
+    margin-top:40px;
     float: left;
     width:650px;
     height: 250px;
     background-color:rgba(255, 255, 255, 0);
     /* border-radius: 2px 20px 20px 0px; */
 }
+.seller{
+    margin:20px;
+    font-size: 13px;
+    color:rgb(11,105,33);
+}
+.more{
+    margin:20px;
+    font-size: 10px;
+    color:black;
+}
 .foot{
     position:relative;
     bottom: 0px;
+}
+.head{
+    float: left;
+    width:75%;
+}
+h3{
+    margin-top:50px;
+    font-size:25px;
+    margin-bottom: 0px;
+}
+hr{
+    margin:0px;
+    width:76%;
+}
+h2{
+    color:rgb(29,96,176);
+    font-size: 18px;
 }
     </style>
 </head>
@@ -70,6 +94,8 @@ session_start();
 
     <div class="margin" style="margin-top: 100px;">
         <div class="checkout"> final checkout block</div>
+        <div class="head"><h3>Shopping Cart</h3><br></div>
+        <hr>
         <?php
             $reg_id=$_SESSION["reg_id"];
             $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
@@ -86,7 +112,15 @@ session_start();
                     <a href="item.php?id=<?php echo $item_id ?>">
                         <div class="cartitems">
                         <img src="<?php echo $image ?>">
-                        <div class="dis"><h2 style="margin-left:20px;"><?php echo $rowi['item_name'] ?></h2></div>
+                        <div class="dis"><h2 style="margin-left:20px;"><?php echo $rowi['item_name'] ?></h2>
+                        <div class="seller">Sold by <?php echo $rowi['item_seller_name']?></div>
+                        <div class="more">Click here to learn more</div>
+                    
+                        <button>Delete</button>
+                        <button>Add to wish list and delte</button>
+                        </div>
+                        
+                        
                         </div>
                     </a>
                 <?php
