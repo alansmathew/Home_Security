@@ -84,30 +84,15 @@
             height:680px;
             display: block;
         }
-        .slider{
-            margin:40px 0px 20px 0px;
-	        /* margin:65 0 0; */
-	        width:100%;
-	        height:55vh;
+
+        sup{
+            z-index: -1;
+            border-radius: 50%;
+            padding:4px;
+            position:relative;
+            background-color:red;
         }
-        .slider img{
-	        width:100%;
-	        height:50vh;
-	        position:absolute;
-	        animation:15s fade ease infinite;
-        }
-        .slider img:nth-of-type(1){animation-delay:12s;}
-        .slider img:nth-of-type(2){animation-delay:9s;}
-        .slider img:nth-of-type(3){animation-delay:6s;}
-        .slider img:nth-of-type(4){animation-delay:3s;}
-        .slider img:nth-of-type(5){animation-delay:0s;}
-        @keyframes fade{
-            0%{opacity:1;}
-            17%{opacity:1;}
-            25%{opacity:0;}
-            92%{opacity:0;}
-            100%{opacity:1;}
-        }
+
         </style>
     </head>
     <body>
@@ -132,9 +117,28 @@
                         $row=mysqli_fetch_array($result);
                         $_SESSION['reg_id']=$row['reg_id'];
 
+                        // no of items in bag 
+
+                        $reg_id=$_SESSION["reg_id"];
+                        $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+                        $s="select count(item_id) from tbl_purchase where reg_id='$reg_id'";
+                        $r=mysqli_query($con,$s);
+                        $ro=mysqli_fetch_array($r);
+                        $_SESSION['bagcount']=$ro['count(item_id)'];
+                        // ------------------------
+                         // no of items in wishlist
+
+                         $reg_id=$_SESSION["reg_id"];
+                         $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+                         $s="select count(item_id) from tbl_wishlist where reg_id='$reg_id'";
+                         $r=mysqli_query($con,$s);
+                         $ro=mysqli_fetch_array($r);
+                         $_SESSION['wishlistcount']=$ro['count(item_id)'];
+                         // ------------------------
+                        
                         echo '<a href="">'.$_SESSION['user'].'</a>';
-                        echo '<a href="wishlist.php">Wishlist</a>';
-                        echo '<a href="cart.php">Bag</a>';
+                        echo '<a href="wishlist.php" style="position:relative"><sup>'.$_SESSION['wishlistcount'].'</sup>Wishlist</a>';
+                        echo '<a href="cart.php" style="position:relative"><sup>'.$_SESSION['bagcount'].'</sup>Bag</a>';
                         echo '<a href="logout.php">Logout</a>';
                     }
                     else{
@@ -143,14 +147,6 @@
                     }
                 ?>
         </div>
-         <!-- navigator -->
-         <!-- <div class=slider>
-                <img src="images/1.jpg">
-                <img src="images/2.jpg">
-                <img src="images/3.jpg">
-                <img src="images/4.jpg">
-                <img src="images/5.jpg">
-         </div> -->
     <div class="margin" style="overflow: hidden;">
     <div class="item_class">
     <?php

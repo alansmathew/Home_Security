@@ -30,12 +30,13 @@ session_start();
     border-radius: 20px 0px 0px 20px;
     width:250px;
     height: 250px;
-    /* border:1px solid black; */
-    /* background-color: azure; */
 }
 .cartitems:hover{
     transform: scale(1.04);
     border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+.cartitems button{
+    margin-left:20px;
 }
 .dis{
     margin-top:40px;
@@ -76,6 +77,51 @@ h2{
     color:rgb(29,96,176);
     font-size: 18px;
 }
+.pr{
+    position:relative;
+    right:40px;
+    color:brown;
+    font-size:20px;
+    float:right;
+    width:50px;
+}
+p{
+    width:76%;
+    font-size:14px;
+    letter-spacing:.3px;
+    word-spacing: 2px;
+}
+.toppart{
+    color:green;
+    padding-left: 20px;
+    text-align: justify;
+}
+.bottompart{
+    position:absolute;
+    height:67%;
+    width:100%;
+    bottom: 0px;
+    background-color: rgb(241,241,241);
+    border-top:1px solid rgba(36, 36, 36, 0.192);
+}
+.checkout{
+    position:relative;
+    border-radius: 10px;
+    margin-top:120px;
+    float:right;
+    width:280px;
+    height:250px;
+    box-shadow: 1px 1px 8px 1px rgba(206, 204, 201, 0.301);
+    background-color: white;
+    border:1px solid rgba(36, 36, 36, 0.192);
+}
+.bottompart b{
+    float:left;
+    margin-top:20px;
+    margin-left:20px;
+    font-size:large;
+    /* background-color: green; */
+}
     </style>
 </head>
 <body>
@@ -84,16 +130,50 @@ h2{
                 <a href="home.php" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
                 </a>
                 <?php
+                // no of items in bag 
+
+                $reg_id=$_SESSION["reg_id"];
+                $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+                $s="select count(item_id) from tbl_purchase where reg_id='$reg_id'";
+                $r=mysqli_query($con,$s);
+                $ro=mysqli_fetch_array($r);
+                $_SESSION['bagcount']=$ro['count(item_id)'];
+                // ------------------------
+                 // no of items in wishlist
+
+                 $reg_id=$_SESSION["reg_id"];
+                 $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+                 $s="select count(item_id) from tbl_wishlist where reg_id='$reg_id'";
+                 $r=mysqli_query($con,$s);
+                 $ro=mysqli_fetch_array($r);
+                 $_SESSION['wishlistcount']=$ro['count(item_id)'];
+                 // ------------------------
+                
                     echo '<a href="">'.$_SESSION['user'].'</a>';
-                    echo '<a href="wishlist.php">Wishlist</a>';
-                    echo '<a href="cart.php">Bag</a>';
+                    echo '<a href="wishlist.php" style="position:relative"><sup>'.$_SESSION['wishlistcount'].'</sup>Wishlist</a>';
+                    echo '<a href="cart.php" style="position:relative"><sup>'.$_SESSION['bagcount'].'</sup>Bag</a>';
                     echo '<a href="logout.php">Logout</a>';
                 ?>
         </div>
      <!-- navigator -->
 
     <div class="margin" style="margin-top: 100px;">
-        <div class="checkout"> final checkout block</div>
+        <div class="checkout"> 
+            <div class="toppart">
+                <p>Part of your order qualifies for FREE Delivery. </p>
+            </div>
+            <div class="bottompart">
+            <?php
+                $reg_id=$_SESSION["reg_id"];
+                $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+                $sql="select count(item_id) from tbl_purchase where reg_id='$reg_id'";
+                $result=mysqli_query($con,$sql);
+                $row=mysqli_fetch_array($result);
+            ?>
+                <b> Subtotal(<?php echo $row['count(item_id)']?> items): <?php echo $p ?> </b>
+            </div>
+
+        </div>
         <div class="head"><h3>Shopping Cart</h3><br></div>
         <hr>
         <?php
@@ -108,25 +188,24 @@ h2{
                 $resulti=mysqli_query($con,$q);
                 $rowi=mysqli_fetch_array($resulti);
                 $image="images/".$rowi['item_main_image'];
+                $p=0;
+                $p+=$rowi["item_cost"];
                 ?>
-                    <a href="item.php?id=<?php echo $item_id ?>">
-                        <div class="cartitems">
-                        <img src="<?php echo $image ?>">
-                        <div class="dis"><h2 style="margin-left:20px;"><?php echo $rowi['item_name'] ?></h2>
-                        <div class="seller">Sold by <?php echo $rowi['item_seller_name']?></div>
-                        <div class="more">Click here to learn more</div>
+                <div class="cartitems">
+                <a href="item.php?id=<?php echo $item_id ?>"><img src="<?php echo $image ?>">
+                    <div class="dis"><h2 style="margin-left:20px;"><?php echo $rowi['item_name'] ?></h2>
+                    <div class="seller">Sold by <?php echo $rowi['item_seller_name']?></div>
+                    <div class="more">Click here to learn more</div></a>
+                    <div class="pr">$<?php echo $rowi["item_cost"]?></div>
+                    <button>Delete</button>
+                    <button>Add to wish list and delete form bag</button>
+                </div>
+        </div>
                     
-                        <button>Delete</button>
-                        <button>Add to wish list and delte</button>
-                        </div>
-                        
-                        
-                        </div>
-                    </a>
                 <?php
             }
-
-        ?>        
+        ?> 
+        <p>The price and availability of items are subject to change. The shopping cart is a temporary place to store a list of your items and reflects each item's most recent price. Do you have a promotional code? We'll ask you to enter your claim code when it's time to pay.</p>       
     </div>
 
      <!-- footer -->

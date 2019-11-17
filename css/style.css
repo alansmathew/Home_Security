@@ -186,17 +186,14 @@ h1{
     height:200px;
     background-color: aquamarine;
 }
-
-
-.checkout{
-    border-radius: 20px;
-    margin-top:20px;
-    float:right;
-    width:280px;
-    height:500px;
-    box-shadow: 2px 2px 12px 1px rgba(145, 129, 110, 0.673);
-    background-color: bisque;
+sup{
+    z-index: -1;
+    border-radius: 50%;
+    padding:4px;
+    position:relative;
+    background-color:red;
 }
+
 .container{
     color:white;
     width: 600px;

@@ -223,9 +223,28 @@
                 <?php
                     if(isset($_SESSION['user']))
                     {
+                        // no of items in bag 
+
+                        $reg_id=$_SESSION["reg_id"];
+                        $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+                        $s="select count(item_id) from tbl_purchase where reg_id='$reg_id'";
+                        $r=mysqli_query($con,$s);
+                        $ro=mysqli_fetch_array($r);
+                        $_SESSION['bagcount']=$ro['count(item_id)'];
+                        // ------------------------
+                         // no of items in wishlist
+
+                         $reg_id=$_SESSION["reg_id"];
+                         $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+                         $s="select count(item_id) from tbl_wishlist where reg_id='$reg_id'";
+                         $r=mysqli_query($con,$s);
+                         $ro=mysqli_fetch_array($r);
+                         $_SESSION['wishlistcount']=$ro['count(item_id)'];
+                         // ------------------------
+
                         echo '<a href="">'.$_SESSION['user'].'</a>';
-                        echo '<a href="wishlist.php">Wishlist</a>';
-                        echo '<a href="cart.php">Bag</a>';
+                        echo '<a href="wishlist.php" style="position:relative"><sup>'.$_SESSION['wishlistcount'].'</sup>Wishlist</a>';
+                        echo '<a href="cart.php" style="position:relative"><sup>'.$_SESSION['bagcount'].'</sup>Bag</a>';
                         echo '<a href="logout.php">Logout</a>';
                     }
                     else{
@@ -270,7 +289,15 @@
                     <div class="pname">Special Price including all tax's</div>
                     <div class="pr">
                         $<?php echo $row['item_cost']; ?>
-                        <button onclick="wishlist()">Add to wishlist</button>
+                        <?php 
+                        if(isset($_SESSION['user']))
+                        { 
+                            echo '<button onclick="wishlist()">Add to wishlist</button>';
+                        }
+                        else{
+                            echo '<a href="#popup1"><button>Add to wishlist</button></a>';
+                        }
+                        ?>
                     </div> 
                 </div>
 
@@ -287,7 +314,6 @@
         </div>
         <!-- discription ends here -->
         
-        <!-- <a href="purchase.php"><button class="opt" >Buy Now</button></a> -->
         <?php
         if(isset($_SESSION['user']))
         {
@@ -298,7 +324,7 @@
         }
         else{
             ?>
-                <a href="#popup1"><button class="opt" style="background-color:rgb(253,158,40)">Add to Wishlist</button>
+                <a href="#popup1"><button class="opt" style="background-color:rgb(253,158,40)">Add to Bag</button>
                 <button class="opt" >Buy Now</button></a>
             <?php
         }

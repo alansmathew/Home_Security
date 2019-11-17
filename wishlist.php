@@ -69,10 +69,29 @@ session_start();
                 <a href="home.php" style="border-radius:20px;padding:10px 8px 10px 10px;font-size: 29px;font-family: Herculanum;color:rgb(100,234,203);border:1px solid rgb(100,234,203); "> H
                 </a>
                 <?php
-                        echo '<a href="">'.$_SESSION['user'].'</a>';
-                        echo '<a href="wishlist.php">Wishlist</a>';
-                        echo '<a href="cart.php">Bag</a>';
-                        echo '<a href="logout.php">Logout</a>';
+                // no of items in bag 
+
+                $reg_id=$_SESSION["reg_id"];
+                $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+                $s="select count(item_id) from tbl_purchase where reg_id='$reg_id'";
+                $r=mysqli_query($con,$s);
+                $ro=mysqli_fetch_array($r);
+                $_SESSION['bagcount']=$ro['count(item_id)'];
+                // ------------------------
+                 // no of items in wishlist
+
+                 $reg_id=$_SESSION["reg_id"];
+                 $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
+                 $s="select count(item_id) from tbl_wishlist where reg_id='$reg_id'";
+                 $r=mysqli_query($con,$s);
+                 $ro=mysqli_fetch_array($r);
+                 $_SESSION['wishlistcount']=$ro['count(item_id)'];
+                 // ------------------------
+
+                       echo '<a href="">'.$_SESSION['user'].'</a>';
+                       echo '<a href="wishlist.php" style="position:relative"><sup>'.$_SESSION['wishlistcount'].'</sup>Wishlist</a>';
+                       echo '<a href="cart.php" style="position:relative"><sup>'.$_SESSION['bagcount'].'</sup>Bag</a>';
+                       echo '<a href="logout.php">Logout</a>';
     
                 ?>
         </div>
