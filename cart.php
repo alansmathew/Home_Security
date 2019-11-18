@@ -130,6 +130,9 @@ p{
 .bottompart button:hover{
     background-color: rgba(235,185,94,1);
 }
+.foot{
+    position: relative;
+}
 
     </style>
 </head>
