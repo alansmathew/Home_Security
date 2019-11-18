@@ -118,10 +118,23 @@ p{
 .bottompart b{
     float:left;
     margin-top:20px;
-    margin-left:20px;
+    margin-left:15px;
     font-size:large;
-    /* background-color: green; */
 }
+.bottompart button{
+    background-color: rgba(235,185,94,.8);
+    width:90%;
+    height:35px;
+    margin-top:55px;
+    border:1px solid rgba(10, 10, 10, 0.431);
+    border-radius: 5px;
+    font-size:15px;
+    color:black;
+}
+.bottompart button:hover{
+    background-color: rgba(235,185,94,1);
+}
+
     </style>
 </head>
 <body>
@@ -163,14 +176,23 @@ p{
                 <p>Part of your order qualifies for FREE Delivery. </p>
             </div>
             <div class="bottompart">
+            <!-- // total cost --------------------------------- -->
             <?php
+            
                 $reg_id=$_SESSION["reg_id"];
                 $con=mysqli_connect("localhost","root","","project") or die("failed to connect!");
                 $sql="select count(item_id) from tbl_purchase where reg_id='$reg_id'";
                 $result=mysqli_query($con,$sql);
                 $row=mysqli_fetch_array($result);
+                $l="select sum(item_cost) from tbl_items where item_id in(select item_id from tbl_purchase where reg_id='$reg_id')";
+                $result=mysqli_query($con,$l);
+                $row=mysqli_fetch_array($result);
+                $total=$row['sum(item_cost)'];
             ?>
-                <b> Subtotal(<?php echo $row['count(item_id)']?> items): <?php echo $p ?> </b>
+            <!-- --------------------------------- -->
+                <b> Subtotal(<?php echo $_SESSION['bagcount'] ?> items): <i style="color:brown">$ <?php echo $total ?> </i></b>
+
+               <center> <a href="update.html"><button > Proceed to by </button> </a></center>
             </div>
 
         </div>
@@ -188,8 +210,6 @@ p{
                 $resulti=mysqli_query($con,$q);
                 $rowi=mysqli_fetch_array($resulti);
                 $image="images/".$rowi['item_main_image'];
-                $p=0;
-                $p+=$rowi["item_cost"];
                 ?>
                 <div class="cartitems">
                 <a href="item.php?id=<?php echo $item_id ?>"><img src="<?php echo $image ?>">

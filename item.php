@@ -318,8 +318,8 @@
         if(isset($_SESSION['user']))
         {
             ?>
-            <button class="opt" onclick="purchase(<?php echo $item ?>)" style="background-color:rgb(253,158,40)">Add to Bag</button>
-            <button class="opt" >Buy Now</button><a>
+            <button class="opt" onclick="purchase(<?php echo $item ?>)" style="background-color:rgb(253,158,40)">Add to Bag</button><a>
+            <a href="buy.php"><button class="opt" >Buy Now</button></a>
             <?php
         }
         else{
