@@ -56,10 +56,6 @@ session_start();
     font-size: 10px;
     color:black;
 }
-.foot{
-    position:relative;
-    bottom: 0px;
-}
 .head{
     float: left;
     width:75%;
@@ -162,10 +158,23 @@ p{
                  $_SESSION['wishlistcount']=$ro['count(item_id)'];
                  // ------------------------
                 
-                    echo '<a href="">'.$_SESSION['user'].'</a>';
-                    echo '<a href="wishlist.php" style="position:relative"><sup>'.$_SESSION['wishlistcount'].'</sup>Wishlist</a>';
-                    echo '<a href="cart.php" style="position:relative"><sup>'.$_SESSION['bagcount'].'</sup>Bag</a>';
-                    echo '<a href="logout.php">Logout</a>';
+                 echo '<a href="">'.$_SESSION['user'].'</a>';
+                 if(!$_SESSION['wishlistcount']>0)
+                 {
+                     echo '<a href="wishlist.php">Wishlist</a>';
+                 }
+                 else{
+                     echo '<a href="wishlist.php" style="position:relative"><sup>'.$_SESSION['wishlistcount'].'</sup>Wishlist</a>';
+                 }
+                 if(!$_SESSION['bagcount']>0)
+                 {
+                     echo '<a href="cart.php">Bag</a>';
+                 }
+                 else{
+                     echo '<a href="cart.php" style="position:relative"><sup>'.$_SESSION['bagcount'].'</sup>Bag</a>';
+                 }
+                 
+                 echo '<a href="logout.php">Logout</a>';
                 ?>
         </div>
      <!-- navigator -->
@@ -217,8 +226,8 @@ p{
                     <div class="seller">Sold by <?php echo $rowi['item_seller_name']?></div>
                     <div class="more">Click here to learn more</div></a>
                     <div class="pr">$<?php echo $rowi["item_cost"]?></div>
-                    <button>Delete</button>
-                    <button>Add to wish list and delete form bag</button>
+                    <a href="delete.php?id=<?php echo $item_id ?>"><button>Delete</button></a>
+                    <a href="deleteupdate.php?id=<?php echo $item_id ?>"><button>Add to wish list and delete form bag</button></a>
                 </div>
         </div>
                     

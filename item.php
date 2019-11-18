@@ -212,6 +212,9 @@
         right:150px;
         transition: all 10s ease-in;
     }
+    .foot{
+        position: relative;
+    }
 
     </style>
 </head>
@@ -242,10 +245,23 @@
                          $_SESSION['wishlistcount']=$ro['count(item_id)'];
                          // ------------------------
 
-                        echo '<a href="">'.$_SESSION['user'].'</a>';
-                        echo '<a href="wishlist.php" style="position:relative"><sup>'.$_SESSION['wishlistcount'].'</sup>Wishlist</a>';
-                        echo '<a href="cart.php" style="position:relative"><sup>'.$_SESSION['bagcount'].'</sup>Bag</a>';
-                        echo '<a href="logout.php">Logout</a>';
+                         echo '<a href="">'.$_SESSION['user'].'</a>';
+                         if(!$_SESSION['wishlistcount']>0)
+                         {
+                             echo '<a href="wishlist.php">Wishlist</a>';
+                         }
+                         else{
+                             echo '<a href="wishlist.php" style="position:relative"><sup>'.$_SESSION['wishlistcount'].'</sup>Wishlist</a>';
+                         }
+                         if(!$_SESSION['bagcount']>0)
+                         {
+                             echo '<a href="cart.php">Bag</a>';
+                         }
+                         else{
+                             echo '<a href="cart.php" style="position:relative"><sup>'.$_SESSION['bagcount'].'</sup>Bag</a>';
+                         }
+                         
+                         echo '<a href="logout.php">Logout</a>';
                     }
                     else{
                         echo '<a href="reg.php">Sign up</a>';
