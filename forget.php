@@ -111,16 +111,17 @@
                     else if(!el.value.match(patt)){
                             document.getElementById(i).value="";
                             document.getElementById(i).placeholder="Enter a valid email";
-                            document.getElementById(i).style.cssText="border-color:brown;";
+                            document.getElementById(i).style.cssText="margin-top:10px; border-bottom :2px solid brown;";
 					        flag=false;
 				        }
                 }
                 if(flag==true){
-                    
+                    document.getElementById("frm").submit();
                 }
             }
             function clr(id){
                 document.getElementById(id).placeholder="Recovery email";
+                document.getElementById(id).style.cssText="margin-top:10px; border-bottom :2px solid rgba(0,0,0,.20)";
             }
         </script>
     </head>
@@ -139,9 +140,10 @@
                 <div class="inner">
                     <h1 id="l">Forget password</h1>
                     <center>
-                    <form action="" id="frm" method="POST">
-                    <input type="text" name="uname" id=0 onclick="clr(id)" onkeypress="clr(id)" placeholder="Recovery email" style="margin-top:50px;border-bottom: 2px; border-bottom :2px solid rgba(0,0,0,.20);" />
-
+                    <form action="recovery_forget.php" id="frm" method="POST">
+                    <input type="text" name="uname" placeholder="username" style="margin-top:50px; border-bottom :2px solid rgba(0,0,0,.20);" />
+                    <input type="text" name="email" id=0 onclick="clr(id)" onkeypress="clr(id)" placeholder="Recovery email" style="margin-top:10px; border-bottom :2px solid rgba(0,0,0,.20);" />
+                    <!-- <p> to be done !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
                     <input type="button" onclick="val()" name="su" value="Reset" style="cursor:pointer"/>
                     </form>
                 </center>

@@ -47,6 +47,9 @@ session_start();
             float: left;
             display: block;
         }
+        .foot{
+            position:relative;
+        }
         .ct{
             font-size: 16px;
             position: absolute;
