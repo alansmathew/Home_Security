@@ -144,8 +144,8 @@ CREATE TABLE `tbl_login` (
 --
 
 INSERT INTO `tbl_login` (`login_id`, `username`, `password`, `status`) VALUES
-(3, 'alansmathew', 'Alan@12345', 1),
-(4, 'alan', 'Alan@12345', 1);
+(3, 'alansmathew', 'Alan@@', 1),
+(4, 'alan', 'Alan@@', 1);
 
 -- --------------------------------------------------------
 
@@ -187,8 +187,8 @@ CREATE TABLE `tbl_reg` (
 --
 
 INSERT INTO `tbl_reg` (`reg_id`, `login_id`, `name`, `email`) VALUES
-(2, 3, 'alan', 'alansmathew@icloud.com'),
-(3, 4, 'alan', 'alansmathew@icloud.com');
+(2, 3, 'alan', 'alansmathew@gmail.com'),
+(3, 4, 'alan', 'alansmathew@gmail.com');
 
 -- --------------------------------------------------------
 
